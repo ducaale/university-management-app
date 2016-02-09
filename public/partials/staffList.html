@@ -1,0 +1,32 @@
+<toolbar title='Staff'></toolbar>
+<side-nav></side-nav>
+
+<table>
+<tr>
+  <th>name</th>
+  <th>tel</th>
+  <th>enrollment date</th>
+  <th>date of birth</th>
+</tr>
+  <tr ng-repeat="staff in staffs">
+    <td>{{staff.name}}</td>
+    <td>{{staff.tel}}</td>
+    <td>{{staff.batch}}</td>
+    <td>{{staff.date_of_birth}}</td>
+  </tr>
+</table>
+
+
+<form ng-submit="register()">
+
+name:<br>
+<input type="text" name="name" ng-model="staffData.name"><br>
+tel:<br>
+<input type="text" name="tel" ng-model="staffData.tel"><br>
+date of birth:<br>
+<input type="date" name="date_of_birth" ng-model="staffData.date_of_birth"><br>
+enrollment date:<br>
+<input type="date" name="enrollment date" ng-model='staffData.enrollment_date'>
+
+  <button type="submit">register</button>
+</form>

@@ -1,0 +1,27 @@
+<toolbar title='Student - {{student.name}}'></toolbar>
+<side-nav></side-nav>
+
+<p>id:  {{student.id_no}}</p>
+<p>name: {{student.name}}</p>
+<p>batch: {{student.batch}}</p>
+<p>tel:  {{student.tel}}</p>
+<p>date of birth: {{student.date_of_birth |date}}</p>
+
+
+
+<form ng-submit="edit()">
+
+id:<br>
+<input type="text" name='id_no' ng-model="student.id_no"><br>
+name:<br>
+<input type="text" name="name" ng-model="student.name"><br>
+tel:<br>
+<input type="text" name="tel" ng-model="student.tel"><br>
+batch:<br>
+<input type="text" name="batch" ng-model="student.batch"><br>
+date of birth:<br>
+<input type="date" name="name" ng-model="student.date_of_birth"><br>
+
+
+  <button type="submit">save</button>
+</form>

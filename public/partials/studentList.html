@@ -1,0 +1,89 @@
+<toolbar title='Students'></toolbar>
+<side-nav></side-nav>
+
+
+<div>
+  <md-content>
+    <md-card>
+      <md-table-container>
+        <table md-table md-progress="promise">
+          <thead md-head>
+            <tr md-row>
+              <th md-column>id</th>
+              <th md-column>name</th>
+              <th md-column>batch</th>
+              <th md-column>tel</th>
+              <th md-column>enrollment date</th>
+              <th md-column>date of birth</th>
+              <th md-column md-numeric></th>
+            </tr>
+          </thead>
+
+          <tbody md-body>
+            <tr md-row ng-repeat="student in vm.students">
+
+              <td md-cell>{{student.id_no}}</td>
+              <td md-cell>{{student.name}}</td>
+              <td md-cell>{{student.batch}}</td>
+              <td md-cell>{{student.tel}}</td>
+              <td md-cell>{{student.enrollment_date | date}}</td>
+              <td md-cell>{{student.date_of_birth | date}}</td>
+              <td md-cell>
+                <md-menu md-position-mode="target-right target">
+                  <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                    <md-icon md-menu-origin class="material-icons">more_vert</md-icon>
+                  </md-button>
+                  <md-menu-content width="3">
+                    <md-menu-item>
+                      <md-button>
+                        <div layout="row">
+                          <p flex> Edit </p>
+                          <md-icon md-menu-align-target class="material-icons" style="margin: auto 3px auto 0;">edit</md-icon>
+                        </div>
+                      </md-button>
+                    </md-menu-item>
+
+                    <md-menu-item>
+                      <md-button ng-click="vm.delete(student, $index)">
+                        <div layout="row">
+                          <p flex> Delete </p>
+                          <md-icon md-menu-align-target class="material-icons" style="margin: auto 3px auto 0;">delete</md-icon>
+                        </div>
+                      </md-button>
+                    </md-menu-item>
+
+                    <md-menu-item>
+                      <md-button ng-click='vm.fees(student.id)'>
+                        <div layout="row">
+                          <p flex> Fees </p>
+                          <md-icon md-menu-align-target class="material-icons" style="margin: auto 3px auto 0;">attach_money</md-icon>
+                        </div>
+                      </md-button>
+                    </md-menu-item>
+
+                    <md-menu-item>
+                      <md-button ng-click='vm.moreInfo(student.id)'>
+                        <div layout="row">
+                          <p flex> More </p>
+                          <md-icon md-menu-align-target class="material-icons" style="margin: auto 3px auto 0;">more_horiz</md-icon>
+                        </div>
+                      </md-button>
+                    </md-menu-item>
+
+                  </md-menu-content>
+                </md-menu>
+              </td>
+            </tr>
+            <tbody>
+        </table>
+      </md-table-container>
+      <md-card>
+  </md-content>
+
+</div>
+
+
+
+<md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="vm.showTabDialog()">
+  <md-icon class="material-icons md-light">add</md-icon>
+</md-button>

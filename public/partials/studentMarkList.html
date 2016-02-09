@@ -1,0 +1,36 @@
+<toolbar title='Students - Marks'></toolbar>
+<side-nav></side-nav>
+
+
+
+<form name="marks" ng-submit="vm.save()" novalidate>
+
+  <select ng-model="vm.details.course" ng-click="vm.query()" required>
+    <option ng-repeat="course in vm.courses" value="{{course.id}}">{{course.course_name}}</option>
+  </select>
+
+  <select ng-model="vm.details.examType" ng-click="vm.query()" required>
+    <option ng-repeat="examType in vm.examTypes" value="{{examType.id}}">{{examType.exam_type}}</option>
+  </select>
+
+  <select ng-model="vm.details.batch" ng-click="vm.query()" required>
+    <option ng-repeat="batch in vm.batches" value="{{batch.batch_name}}">{{batch.batch_name}}</option>
+  </select>
+
+  <input type="date" name="exam date" ng-model="vm.details.date" required>
+
+
+  <table>
+    <tr ng-repeat="mark in vm.marks ">
+      <td>{{mark.id_no}}</td>
+      <td>{{mark.name}}</td>
+      <td>{{mark.coure_name}}</td>
+      <td>{{mark.exam_type}}</td>
+      <td>
+        <input type="text" name="name" ng-model="mark.mark">
+      </td>
+
+    </tr>
+  </table>
+  <md-button type="submit" class='md-primary md-raised' ng-disabled="marks.$invalid">save</md-button>
+</form>

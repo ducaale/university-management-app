@@ -1,0 +1,26 @@
+<toolbar title="guardians"></toolbar>
+<side-nav></side-nav>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Tel</th>
+    <th>Date of birth</th>
+  </tr>
+
+  <tr ng-repeat="guardian in vm.guardians">
+    <td>{{guardian.name}}</td>
+    <td>{{guardian.tel}}</td>
+    <td>{{guardian.date_of_birth}}</td>
+  </tr>
+</table>
+
+<form name='guardianForm' novalidate>
+  <label>name</label>
+  <input type="text" ng-model="vm.guardianForm.name" required>
+  <label>tel</label>
+  <input type="text" ng-model='vm.guardianForm.tel' required>
+  <label>date of birth</label>
+  <input type="date" ng-model='vm.guardianForm.date_of_birth'>
+
+  <md-button class='md-raised' ng-click="vm.save()" ng-disabled="guardianForm.$invalid">save</md-button>
+</form>

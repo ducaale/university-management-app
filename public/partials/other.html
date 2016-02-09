@@ -1,0 +1,45 @@
+<toolbar title='others'></toolbar>
+<side-nav></side-nav>
+
+<ul>
+  <li ng-repeat="examType in vm.examTypes">{{examType.exam_type}}</li>
+</ul>
+
+<form name="examTypesForm" novalidate>
+  <input type="text" ng-model="vm.examTypesForm.exam_type" required>
+  <md-button class="md-raised" ng-click="vm.saveExamType()" ng-disabled="examTypesForm.$invalid">add</md-button>
+</form>
+
+
+
+
+<ul>
+  <li ng-repeat="batch in vm.batches">{{batch.batch_name}}</li>
+</ul>
+
+<form name="batchForm" novalidate>
+  <input type="text" ng-model="vm.batchForm.batch_name" required>
+  <md-button class="md-raised" ng-click="vm.saveBatch()" ng-disabled="batchForm.$invalid">add</md-button>
+</form>
+
+
+
+<table>
+  <tr>
+    <th>course code</th>
+    <th>course name</th>
+    <th>credits</th>
+  </tr>
+  <tr ng-repeat="course in vm.courses">
+    <td>{{course.course_code}}</td>
+    <td>{{course.course_name}}</td>
+    <td>{{course.credits}}</td>
+  </tr>
+</table>
+
+<form name="courseForm" novalidate>
+  <input type="text" ng-model="vm.courseForm.course_code" required>
+  <input type="text" ng-model="vm.courseForm.course_name" required>
+  <input type="text" ng-model="vm.courseForm.credits" required>
+  <md-button class="md-raised" ng-click="vm.saveCourse()" ng-disabled="courseForm.$invalid">add</md-button>
+</form>

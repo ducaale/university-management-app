@@ -1,0 +1,56 @@
+
+<md-dialog aria-label="Register Student">
+  <md-dialog-content>
+    <div flex layout="row" layout-align="center center">
+    <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
+
+
+      <form name="registerForm" novalidate>
+
+        <md-input-container>
+          <label>Id</label>
+          <input type="number" name='id_no' ng-model="data.id_no" required>
+        </md-input-container>
+
+        <md-input-container flex>
+          <label>Name</label>
+          <input type="text" name="name" ng-model="data.name" required>
+        </md-input-container>
+
+        <md-input-container>
+          <label>Tel</label>
+          <input type="text" name="tel" ng-model="data.tel" required>
+        </md-input-container>
+
+        <md-input-container>
+          <label>Batch</label>
+          <input type="text" name="batch" ng-model="data.batch" required>
+        </md-input-container>
+
+
+        <div>
+          <label>date of birth</label>
+          <input type='date' ng-model="data.date_of_birth" required>
+
+
+          <label>enrollment date</label>
+          <input type='date' ng-model="data.enrollment_date" required>
+        </div>
+
+        <md-autocomplete md-selected-item="selectedGuardian" md-search-text="searchText" md-items="guardian in guardians | filter: searchText" md-item-text="guardian.name" md-min-length="0" placeholder="select guardian" required>
+          <md-item-template>
+            <span md-highlight-text="searchText" md-highlight-flags="^i">{{guardian.name}}</span>
+          </md-item-template>
+        </md-autocomplete>
+
+
+        <md-dialog-actions layout="row">
+          <md-button ng-click="cancel()">cancel</md-button>
+          <md-button class='md-primary md-raised' ng-click="register()" ng-disabled="registerForm.$invalid">register</md-button>
+        </md-dialog-actions>
+
+      </form>
+    </div>
+  </div>
+</md-dialog-content>
+</md-dialog>

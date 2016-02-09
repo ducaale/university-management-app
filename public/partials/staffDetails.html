@@ -1,0 +1,22 @@
+<toolbar title='Staff - {{staff.name}}'></toolbar>
+<side-nav></side-nav>
+
+<p>name: {{staff.name}}</p>
+<p>tel: {{staff.tel}}</p>
+<p>enrollment date:  {{staff.enrollment_date}}</p>
+<p>date of birth: {{staff.date_of_birth |date}}</p>
+
+
+
+<form ng-submit="edit()">
+
+name:<br>
+<input type="text" name="name" ng-model="staff.name"><br>
+tel:<br>
+<input type="text" name="tel" ng-model="staff.tel"><br>
+date of birth:<br>
+<input type="date" name="name" ng-model="staff.date_of_birth"><br>
+
+
+  <button type="submit">save</button>
+</form>
