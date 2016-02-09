@@ -29,6 +29,7 @@ class AddForeignBatchIdToStudentsTable extends Migration
     public function down()
     {
         Schema::table('students', function (Blueprint $table) {
+            dropForeign('students_batch_id_foreign');
             dropColumn('batch_id');
         });
     }
