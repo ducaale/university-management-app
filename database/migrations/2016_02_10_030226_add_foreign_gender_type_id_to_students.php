@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignBatchIdToStudentsTable extends Migration
+class AddForeignGenderTypeIdToStudents extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class AddForeignBatchIdToStudentsTable extends Migration
     public function up()
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->integer('batch_id')->unsigned();
+            $table->integer('gender_type_id')->unsigned();
 
-            $table->foreign('batch_id')
+            $table->foreign('gender_type_id')
                   ->references('id')
-                  ->on('batches');
+                  ->on('gender');
         });
     }
 
@@ -29,8 +29,8 @@ class AddForeignBatchIdToStudentsTable extends Migration
     public function down()
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->dropForeign('students_batch_id_foreign');
-            $table->dropColumn('batch_id');
+            $table->dropForeign('students_gender_type_id_foreign');
+            $table->dropColumn('gender_type_id');
         });
     }
 }
