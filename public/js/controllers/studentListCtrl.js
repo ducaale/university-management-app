@@ -15,7 +15,7 @@
       id_no: '',
       name: '',
       tel: '',
-      batch: '',
+      batch_id: '',
       date_of_birth: '',
       enrollment_date: new Date(),
       guardians_id: ''

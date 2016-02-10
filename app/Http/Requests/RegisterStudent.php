@@ -25,10 +25,10 @@ class RegisterStudent extends Request
     {
         return [
             'name' => 'required',
-            'tel' => 'required',
-            'enrollment_date' => 'required|date',
-            'date_of_birth' => 'required|date',
-            'guardians_id' => 'required'
+            'tel' => 'required'
+            //'enrollment_date' => 'required|date',
+            //'date_of_birth' => 'required|date',
+            //'guardians_id' => 'required'
         ];
     }
 }

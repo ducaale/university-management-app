@@ -23,6 +23,8 @@ class CreateStudentsTable extends Migration
             $table->boolean('active')->default(true);
             $table->timestamps();
 
+            $table->unique('id_no');
+
             $table->foreign('guardians_id')
                   ->references('id')
                   ->on('guardians');

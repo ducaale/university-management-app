@@ -11,11 +11,12 @@ class student extends Model
       'id_no',
       'name',
       'tel',
-      'batch',
+      'batch_id',
       'enrollment_date',
       'date_of_birth',
       'active',
-      'guardians_id'
+      'guardians_id',
+      'gender_type_id'
     ];
 
     public function guardian(){
