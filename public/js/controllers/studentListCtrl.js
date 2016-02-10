@@ -5,11 +5,14 @@
     .controller('studentsController', studentController)
     .controller('DialogController', DialogController)
 
-  function studentController($resource, $location, $mdDialog, Student, Guardian, VerifyDelete) {
+  function studentController($resource, $location, $mdDialog, Student, Guardian, Batch, VerifyDelete) {
     var vm = this;
 
+    vm.search = [];
     vm.students = [];
     vm.guardians = [];
+    vm.batches = [];
+    vm.error;
 
     vm.registerForm = {
       id_no: '',
@@ -18,9 +21,16 @@
       batch_id: '',
       date_of_birth: '',
       enrollment_date: new Date(),
-      guardians_id: ''
+      guardians_id: '',
+      gender_type_id: ''
     };
 
+    vm.selected = [];
+
+    vm.query = {
+      limit: 10,
+      page: 1
+    };
 
     vm.promise = Student.query().$promise.then(function(data) {
       vm.students = data;
@@ -29,6 +39,12 @@
     Guardian.query().$promise.then(function(result) {
       vm.guardians = result;
     }, function(error) {
+      console.log(error);
+    })
+
+    Batch.query().$promise.then(function(result) {
+      vm.batches = result;
+    }, function(erro) {
       console.log(error);
     })
 
@@ -43,7 +59,13 @@
       })
     }
 
-
+    vm.getBatch = function(student_id, batch_id) {
+      for(var x in vm.batches){
+        if(vm.batches[x].id == vm.students[student_id].batch_id){
+          return vm.batches[x].batch_name;
+        }
+      }
+    }
 
     vm.register = function(data) {
       Student.save(data);

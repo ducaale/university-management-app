@@ -1,12 +1,23 @@
 <toolbar title='Students'></toolbar>
 <side-nav></side-nav>
 
+<div>
+  <md-content>
+    <md-card style='padding:1px 24px 1px 24px'>
+      <md-input-container>
+        <md-icon class="material icons">search</md-icon>
+        <label>search</label>
+        <input type="text" name="search" ng-model='vm.search'>
+      </md-input-container>
+    </md-card>
+  </md-content>
+</div>
 
 <div>
   <md-content>
     <md-card>
       <md-table-container>
-        <table md-table md-progress="promise">
+        <table md-table md-row-select=false ng-model="vm.selected" md-progress="vm.promise">
           <thead md-head>
             <tr md-row>
               <th md-column>id</th>
@@ -20,11 +31,11 @@
           </thead>
 
           <tbody md-body>
-            <tr md-row ng-repeat="student in vm.students">
+            <tr md-row ng-repeat="student in vm.students | filter:vm.search | limitTo: vm.query.limit : (vm.query.page -1) * vm.query.limit">
 
               <td md-cell>{{student.id_no}}</td>
               <td md-cell>{{student.name}}</td>
-              <td md-cell>{{student.batch}}</td>
+              <td md-cell>{{vm.getBatch(student.id, student.batch_id)}}</td>
               <td md-cell>{{student.tel}}</td>
               <td md-cell>{{student.enrollment_date | date}}</td>
               <td md-cell>{{student.date_of_birth | date}}</td>
@@ -77,9 +88,8 @@
             <tbody>
         </table>
       </md-table-container>
-      <md-card>
-  </md-content>
-
+      <md-table-pagination md-limit="vm.query.limit" md-page="vm.query.page" md-total="{{vm.students.length}}" md-page-select=false md-boundary-links=false ></md-table-pagination>
+    </md-card>
 </div>
 
 

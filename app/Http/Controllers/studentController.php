@@ -13,7 +13,7 @@ use App\Http\Requests\RegisterStudent;
 class studentController extends Controller
 {
     public function index(){
-      $students = Student::where('active', '1')->get();
+      $students = Student::where('active', '1')->join('batches', 'batches.id', '=', 'students.batch_id')->get();
       return $students;
     }
 

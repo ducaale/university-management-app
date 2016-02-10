@@ -30,4 +30,8 @@ class student extends Model
     public function mark(){
       return $this->hasMany('App\Mark');
     }
+
+    public function batch(){
+      return $this->belongsTo('App\Batch', 'foreign_key');
+    }
 }
