@@ -35,7 +35,8 @@ myApp.config(function($routeProvider) {
   }).
   when('/fees', {
     templateUrl:'partials/feesList.html',
-    controller: 'feesController'
+    controller: 'feesController',
+    controllerAs: 'vm'
   }).
   when('/student/:student_id/fees', {
     templateUrl: 'partials/studentFees.html',

@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 use DB;
 use App\Fee;
-use App\Http\Requests\makeTransaction;
+use App\Http\Requests\MakeTransaction;
 
 class feeController extends Controller
 {
@@ -31,7 +31,7 @@ class feeController extends Controller
       return $fees;
    }
 
-    public function store(makeTransaction $request){
+    public function store(MakeTransaction $request){
       Fee::create($request->all());
     }
 

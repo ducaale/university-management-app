@@ -5,13 +5,14 @@
     .controller('studentsController', studentController)
     .controller('DialogController', DialogController)
 
-  function studentController($resource, $location, $mdDialog, Student, Guardian, Batch, VerifyDelete) {
+  function studentController($resource, $location, $mdDialog, Student, Guardian, Batch, Gender, VerifyDelete) {
     var vm = this;
 
     vm.search = [];
     vm.students = [];
     vm.guardians = [];
     vm.batches = [];
+    vm.gender = [];
     vm.error;
 
     vm.registerForm = {
@@ -34,6 +35,8 @@
 
     vm.promise = Student.query().$promise.then(function(data) {
       vm.students = data;
+    }, function(error) {
+      vm.error = error
     })
 
     Guardian.query().$promise.then(function(result) {
@@ -45,6 +48,12 @@
     Batch.query().$promise.then(function(result) {
       vm.batches = result;
     }, function(erro) {
+      console.log(error);
+    })
+
+    Gender.query().$promise.then(function(result) {
+      vm.gender = result;
+    }, function(error) {
       console.log(error);
     })
 
@@ -92,7 +101,9 @@
         locals: {
           register: vm.register,
           data: vm.registerForm,
-          guardians: vm.guardians
+          guardians: vm.guardians,
+          batches: vm.batches,
+          gender: vm.gender
         }
 
       })
@@ -102,9 +113,11 @@
 
   }
 
-  function DialogController($scope, $mdDialog, register, data, guardians) {
+  function DialogController($scope, $mdDialog, register, data, guardians, batches, gender) {
     $scope.data = data;
     $scope.guardians = guardians;
+    $scope.batches = batches;
+    $scope.gender = gender;
 
     $scope.searchText = '';
     $scope.selectedGuardian = '';

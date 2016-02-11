@@ -42,6 +42,7 @@ Route::group(array('prefix' => 'api' ), function(){
     Route::resource('course', 'courseController');
     Route::resource('mark', 'markController');
     Route::resource('batch', 'batchController');
+    Route::resource('gender', 'genderController');
 
     Route::resource('student.fee', 'studentFeeController');
 });

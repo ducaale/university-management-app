@@ -9,11 +9,11 @@ class fee extends Model
     protected $table = 'fees';
 
     protected $fillable = [
+      'student_id',
       'amount',
       'type',
       'descr',
       'dept_or_credit',
-      'student_id'
     ];
 
     public function student(){

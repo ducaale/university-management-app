@@ -14,7 +14,7 @@ services.factory('Student', ['$resource', function($resource) {
 
 
 services.factory('Guardian', ['$resource', function($resource) {
-  return $resource('api/guardian/:id' , {
+  return $resource('api/guardian/:id', {
     id: '@id'
   }, {
     'update': {
@@ -100,6 +100,12 @@ services.factory('Batch', ['$resource', function($resource) {
       method: 'PUT'
     }
   });
+}]);
+
+services.factory('Gender', ['$resource', function($resource) {
+  return $resource('api/gender/:id', {
+    id: '@id'
+  }, {});
 }]);
 
 services.factory('VerifyDelete', ['$mdDialog', function($mdDialog) {
