@@ -1,0 +1,37 @@
+<md-dialog>
+  <md-dialog-content>
+    <div flex layout="row" layout-align="center center">
+      <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
+
+        <form name='feeForm' novalidate>
+
+
+          <md-autocomplete md-floating-label="student name" md-selected-item="vm.selectedStudent" md-search-text="vm.searchStudent" md-items="student in vm.students | filter: vm.searchStudent" md-item-text="student.name" md-min-length="0" placeholder="select student" required>
+            <md-item-template>
+              <span md-highlight-text="vm.searchStudent" md-highlight-flags="^i">{{student.id}} {{student.name}}</span>
+            </md-item-template>
+          </md-autocomplete>
+
+          <md-input-container>
+            <label>amount</label>
+            <input type="number" name="amount" ng-model="vm.transactionData.amount" required>
+          </md-input-container>
+
+          <md-input-container>
+            <label>type</label>
+            <input type="text" name="type" ng-model="vm.transactionData.type" required>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>description</label>
+            <input type="text" name="descr" ng-model="vm.transactionData.descr">
+          </md-input-container>
+          <md-dialog-action layout="row">
+            <md-button ng-click="vm.hide()">cancel</md-button>
+            <md-button class="md-primary" type="submit" ng-click="vm.makeTransaction(vm.transactionData)" ng-disabled="feeForm.$invalid">make transaction</md-button>
+          </md-dialog-action>
+        </form>
+      </div>
+    </div>
+  </md-dialog-content>
+</md-dialog>

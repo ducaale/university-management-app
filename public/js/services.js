@@ -37,8 +37,8 @@ services.factory('Staff', ['$resource', function($resource) {
 
 
 services.factory('Fee', ['$resource', function($resource) {
-  return $resource('api/fee/:fee_id', {
-    fee_id: '@fee_id'
+  return $resource('api/fee/:id', {
+    fee_id: '@id'
   }, {
     'update': {
       method: 'PUT'
@@ -116,5 +116,16 @@ services.factory('VerifyDelete', ['$mdDialog', function($mdDialog) {
       .ok('Delete User')
       .cancel('Cancel')
     return $mdDialog.show(confirm);
+  }
+}]);
+
+services.factory('Toast', ['$mdToast', function($mdToast) {
+  return function(state) {
+    var toast = $mdToast.simple()
+      .textContent(state)
+      .action('ok')
+      .highlightAction(false)
+      .position('bottom' + ' ' +'left')
+      $mdToast.show(toast)
   }
 }])

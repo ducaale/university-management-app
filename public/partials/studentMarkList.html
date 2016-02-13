@@ -5,20 +5,27 @@
 
 <form name="marks" ng-submit="vm.save()" novalidate>
 
-  <select ng-model="vm.details.course" ng-click="vm.query()" required>
+  <select ng-model="vm.details.course.id" ng-click="vm.query()" required>
     <option ng-repeat="course in vm.courses" value="{{course.id}}">{{course.course_name}}</option>
   </select>
 
-  <select ng-model="vm.details.examType" ng-click="vm.query()" required>
+  <select ng-model="vm.details.examType.id" ng-click="vm.query()" required>
     <option ng-repeat="examType in vm.examTypes" value="{{examType.id}}">{{examType.exam_type}}</option>
   </select>
 
-  <select ng-model="vm.details.batch" ng-click="vm.query()" required>
-    <option ng-repeat="batch in vm.batches" value="{{batch.batch_name}}">{{batch.batch_name}}</option>
+  <select ng-model="vm.details.batch.id" ng-click="vm.query()" required>
+    <option ng-repeat="batch in vm.batches" value="{{batch.id}}">{{batch.batch_name}}</option>
   </select>
 
-  <input type="date" name="exam date" ng-model="vm.details.date" required>
+  <md-input-container>
+    <label>Enter semester</label>
+    <input type="number" name="name" value="">
+  </md-input-container>
 
+  <md-input-container>
+    <label>Exam Date</label>
+    <input type="date" name="exam date" ng-model="vm.details.date" required>
+  </md-input-container>
 
   <table>
     <tr ng-repeat="mark in vm.marks ">

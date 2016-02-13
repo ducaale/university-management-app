@@ -8,12 +8,13 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Student;
+use DB;
 use App\Http\Requests\RegisterStudent;
 
 class studentController extends Controller
 {
     public function index(){
-      $students = Student::where('active', '1')->join('batches', 'batches.id', '=', 'students.batch_id')->get();
+      $students = DB::table("students")->select(DB::raw("students.*"), 'batches.batch_name')->join('batches', 'batches.id', '=', 'batch_id')->where('active', '=', '1')->get();
       return $students;
     }
 

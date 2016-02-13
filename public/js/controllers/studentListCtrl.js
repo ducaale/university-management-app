@@ -3,7 +3,7 @@
 
   angular.module('myApp')
     .controller('studentsController', studentController)
-    .controller('DialogController', DialogController)
+    .controller('Dialog1Controller', Dialog1Controller)
 
   function studentController($resource, $location, $mdDialog, Student, Guardian, Batch, Gender, VerifyDelete) {
     var vm = this;
@@ -68,14 +68,6 @@
       })
     }
 
-    vm.getBatch = function(student_id, batch_id) {
-      for(var x in vm.batches){
-        if(vm.batches[x].id == vm.students[student_id].batch_id){
-          return vm.batches[x].batch_name;
-        }
-      }
-    }
-
     vm.register = function(data) {
       Student.save(data);
       vm.students.push(data);
@@ -90,9 +82,9 @@
     }
 
 
-    vm.showTabDialog = function($event) {
+    vm.openDialog = function($event) {
       $mdDialog.show({
-        controller: 'DialogController',
+        controller: 'Dialog1Controller',
 
         templateUrl: 'partials/dialog.register.html',
         parent: angular.element(document.body),
@@ -113,13 +105,13 @@
 
   }
 
-  function DialogController($scope, $mdDialog, register, data, guardians, batches, gender) {
+  function Dialog1Controller($scope, $mdDialog, register, data, guardians, batches, gender) {
     $scope.data = data;
     $scope.guardians = guardians;
     $scope.batches = batches;
     $scope.gender = gender;
 
-    $scope.searchText = '';
+    $scope.searchGuardian = '';
     $scope.selectedGuardian = '';
 
     $scope.hide = function() {

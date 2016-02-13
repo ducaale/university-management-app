@@ -20,12 +20,12 @@
         <table md-table md-row-select=false ng-model="vm.selected" md-progress="vm.promise">
           <thead md-head>
             <tr md-row>
-              <th md-column>id</th>
-              <th md-column>name</th>
-              <th md-column>batch</th>
-              <th md-column>tel</th>
-              <th md-column>enrollment date</th>
-              <th md-column>date of birth</th>
+              <th md-column>ID</th>
+              <th md-column>NAME</th>
+              <th md-column>BATCH</th>
+              <th md-column>TEL</th>
+              <th md-column>ENROLLMENT DATE</th>
+              <th md-column>DATE OF BIRTH</th>
               <th md-column md-numeric></th>
             </tr>
           </thead>
@@ -35,7 +35,7 @@
 
               <td md-cell>{{student.id_no}}</td>
               <td md-cell>{{student.name}}</td>
-              <td md-cell>{{vm.getBatch(student.id, student.batch_id)}}</td>
+              <td md-cell>{{student.batch_name}}</td>
               <td md-cell>{{student.tel}}</td>
               <td md-cell>{{student.enrollment_date | date}}</td>
               <td md-cell>{{student.date_of_birth | date}}</td>
@@ -76,7 +76,7 @@
                       <md-button ng-click='vm.moreInfo(student.id)'>
                         <div layout="row">
                           <p flex> More </p>
-                          <md-icon md-menu-align-target class="material-icons" style="margin: auto 3px auto 0;">more_horiz</md-icon>
+                          <md-icon md-menu-align-target class="material-icons" style="margin: auto 3px auto 0;">info</md-icon>
                         </div>
                       </md-button>
                     </md-menu-item>
@@ -94,6 +94,6 @@
 
 
 
-<md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="vm.showTabDialog()">
+<md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="vm.openDialog()">
   <md-icon class="material-icons md-light">add</md-icon>
 </md-button>

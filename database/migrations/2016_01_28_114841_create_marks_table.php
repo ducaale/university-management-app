@@ -19,6 +19,7 @@ class CreateMarksTable extends Migration
             $table->integer('exam_type_id')->unsigned();
             $table->integer('mark');
             $table->date('exam_date');
+            $table->integer('semester');
             $table->string('by_staff');
             $table->timestamps();
 

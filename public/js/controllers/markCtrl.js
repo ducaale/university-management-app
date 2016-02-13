@@ -55,9 +55,9 @@
 
     vm.query = function() {
       Mark.query({
-        exam_type_id: parseInt(vm.details.course),
-        course_id: parseInt(vm.details.examType),
-        batch: vm.details.batch
+        exam_type_id: parseInt(vm.details.course.id),
+        course_id: parseInt(vm.details.examType.id),
+        batch_id: parseInt(vm.details.batch.id)
       }).$promise.then(function(result) {
         vm.marks = result;
         original = angular.copy(result);

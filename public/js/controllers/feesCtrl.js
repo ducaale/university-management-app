@@ -5,12 +5,14 @@
   angular
     .module('myApp')
     .controller('feesController', feesController)
+    .controller('Dialog2Controller', Dialog2Controller)
 
-  function feesController($resource, $routeParams, Fee, Student) {
+  function feesController($resource, $routeParams, $mdDialog, Fee, Student, Toast) {
     var vm = this;
-    vm.id;
     vm.students = [];
     vm.fees = [];
+    vm.selectedStudent = [];
+    vm.searchStudent = "";
     vm.error;
 
     vm.dept_or_credit = [{
@@ -46,22 +48,70 @@
       vm.students = data;
     })
 
-    var convert_id = function(id) {
-      for (var x in vm.students) {
-         console.log(vm.students[x].id);
-          if (vm.students[x].id_no === id) {
-            console.log(vm.students[x]);
-            return vm.students[x].id;
-          }
-
-      }
+    vm.refresh = function() {
+      Fee.query().$promise.then(function(result) {
+        vm.fees = result;
+      }, function(error) {
+        console.log(error);
+      })
     }
-    vm.makeTransaction = function() {
-      vm.transactionData.student_id = convert_id(vm.transactionData.student_id)
-      console.log(vm.transactionData);
-      Fee.save(vm.transactionData)
+
+    vm.dept_or_credit = function(debit_or_credit) {
+      vm.transactionData.dept_or_credit = debit_or_credit;
+    }
+
+    vm.makeTransaction = function(transactionData) {
+      console.log(transactionData);
+      Fee.save(vm.transactionData).$promise.then(function(success) {
+        Toast('success');
+        vm.refresh();
+      }, function(error) {
+        Toast('error');
+      })
+    }
+
+    vm.openDialog = function($event) {
+      $mdDialog.show({
+        controller: 'Dialog2Controller',
+        controllerAs: 'vm',
+        templateUrl: 'partials/dialog.transaction.html',
+        parent: angular.element(document.body),
+        targetEvent: $event,
+        locals: {
+          makeTransaction: vm.makeTransaction,
+          transactionData: vm.transactionData,
+          students: vm.students,
+          searchStudent: vm.searchStudent,
+          selectedStudent: vm.selectedStudent
+
+        }
+      })
     }
 
   };
 
+  function Dialog2Controller($mdDialog, makeTransaction, transactionData, students, selectedStudent, searchStudent) {
+    var vm = this;
+
+    vm.transactionData = transactionData;
+    vm.selectedStudent = selectedStudent;
+    vm.searchStudent = searchStudent;
+    vm.students = students;
+
+
+    vm.makeTransaction = function() {
+      vm.transactionData.student_id = vm.selectedStudent.id;
+      makeTransaction(vm.transactionData);
+      $mdDialog.hide();
+    }
+
+    vm.hide = function() {
+      $mdDialog.hide();
+    }
+
+    vm.cancel = function() {
+      $mdDialog.cancel();
+    }
+
+  }
 })();

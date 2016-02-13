@@ -16,6 +16,9 @@
   <!-- angular loading-bar css-->
 <link rel="stylesheet" href="bower_components\angular-loading-bar\build\loading-bar.min.css" >
 
+<!-- my stylesheet -->
+<link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8">
+
 </head>
 <body layout="column">
 
