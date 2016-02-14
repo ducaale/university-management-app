@@ -1,6 +1,7 @@
 <toolbar title='others'></toolbar>
 <side-nav></side-nav>
 
+<h1>Exam types</h1>
 <ul>
   <li ng-repeat="examType in vm.examTypes">{{examType.exam_type}}</li>
 </ul>
@@ -12,7 +13,7 @@
 
 
 
-
+<h1>Batches</h1>
 <ul>
   <li ng-repeat="batch in vm.batches">{{batch.batch_name}}</li>
 </ul>
@@ -23,7 +24,7 @@
 </form>
 
 
-
+<h1>Courses</h1>
 <table>
   <tr>
     <th>course code</th>
@@ -38,8 +39,11 @@
 </table>
 
 <form name="courseForm" novalidate>
+  <label>course code</label>
   <input type="text" ng-model="vm.courseForm.course_code" required>
+  <label>Course name</label>
   <input type="text" ng-model="vm.courseForm.course_name" required>
+  <label>Credits</label>
   <input type="text" ng-model="vm.courseForm.credits" required>
   <md-button class="md-raised" ng-click="vm.saveCourse()" ng-disabled="courseForm.$invalid">add</md-button>
 </form>

@@ -5,7 +5,7 @@
     .controller('studentsController', studentController)
     .controller('Dialog1Controller', Dialog1Controller)
 
-  function studentController($resource, $location, $mdDialog, Student, Guardian, Batch, Gender, VerifyDelete) {
+  function studentController($resource, $location, $mdDialog, Student, Guardian, Batch, Gender, VerifyDelete, Toast) {
     var vm = this;
 
     vm.search = [];
@@ -69,8 +69,12 @@
     }
 
     vm.register = function(data) {
-      Student.save(data);
-      vm.students.push(data);
+      Student.save(data).$promise.then(function(success) {
+        Toast('success');
+          vm.students.push(data);
+      }, function(error) {
+        Toast('error')
+      })
     }
 
     vm.moreInfo = function(id) {

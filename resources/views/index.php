@@ -10,8 +10,9 @@
   <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css"
   rel="stylesheet" type="text/css"/>
 
-  <!-- icons -->
+  <!-- fonts & icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" />
 
   <!-- angular loading-bar css-->
 <link rel="stylesheet" href="bower_components\angular-loading-bar\build\loading-bar.min.css" >

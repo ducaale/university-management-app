@@ -14,7 +14,8 @@ class mark extends Model
       'exam_type_id',
       'mark',
       'exam_date',
-      'by_staff'
+      'by_staff',
+      'semester'
     ];
 
     public function student(){

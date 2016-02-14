@@ -20,7 +20,7 @@ class CreateMarksTable extends Migration
             $table->integer('mark');
             $table->date('exam_date');
             $table->integer('semester');
-            $table->string('by_staff');
+            $table->string('filled_by');
             $table->timestamps();
 
             $table->foreign('student_id')

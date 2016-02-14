@@ -20,7 +20,8 @@
       course: '',
       examType: '',
       date: '',
-      batch: ''
+      batch: '',
+      semester: ''
     };
 
     var marksData = [];
@@ -85,10 +86,12 @@
         marksData.push({
           id: vm.marks[x].id,
           student_id: vm.marks[x].student_id,
-          course_id: vm.details.course,
-          exam_type_id: vm.details.examType,
+          course_id: vm.details.course.id,
+          exam_type_id: vm.details.examType.id,
           mark: vm.marks[x].mark,
-          exam_date: vm.details.date
+          exam_date: vm.details.date,
+          semester: vm.details.semester,
+          filled_by: vm.marks.filled_by
         });
 
 

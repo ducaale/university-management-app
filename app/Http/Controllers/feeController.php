@@ -23,7 +23,7 @@ class feeController extends Controller
                                 from fees where dept_or_credit = "c") as d'))
                 ->select('student_id', 'name', DB::raw('sum(debit) as debit'),
                           DB::raw('sum(credit) as credit'),
-                          DB::raw('sum(credit)-sum(debit) as balance'))
+                          DB::raw('sum(debit)-sum(credit) as balance'))
                 ->join('students', 'student_id', '=','students.id')
                 ->groupBy('student_id')
                 ->get();
