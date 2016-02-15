@@ -108,6 +108,16 @@ services.factory('Gender', ['$resource', function($resource) {
   }, {});
 }]);
 
+services.factory('Attendance', ['$resource', function($resource) {
+  return $resource('api/attendence/:id', {
+    id: '@id'
+  }, {
+    'update': {
+      method: 'PUT'
+    }
+  });
+}]);
+
 services.factory('VerifyDelete', ['$mdDialog', function($mdDialog) {
   return function(user) {
     var confirm = $mdDialog.confirm()
@@ -125,7 +135,7 @@ services.factory('Toast', ['$mdToast', function($mdToast) {
       .textContent(state)
       .action('ok')
       .highlightAction(false)
-      .position('bottom' + ' ' +'left')
-      $mdToast.show(toast)
+      .position('bottom' + ' ' + 'left')
+    $mdToast.show(toast)
   }
 }])

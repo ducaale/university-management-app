@@ -1,0 +1,31 @@
+<toolbar title='absent students'></toolbar>
+<side-nav></side-nav>
+
+
+<div>
+  <md-content>
+    <md-card>
+      <md-table-container>
+        <table md-table>
+          <thead md-head>
+            <tr md-row>
+              <th md-column>Id</th>
+              <th md-column>Name</th>
+              <th md-column>Notes</th>
+            </tr>
+          </thead>
+
+          <tbody md-body>
+            <tr md-row ng-repeat="absent in vm.absent">
+
+              <td md-cell>{{absent.student_id}}</td>
+              <td md-cell>{{absent.name}}</td>
+              <td md-cell>{{absent.notes}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </md-table-container>
+    </md-card>
+  </md-content>
+
+</div>

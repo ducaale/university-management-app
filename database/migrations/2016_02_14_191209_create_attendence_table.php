@@ -14,7 +14,13 @@ class CreateAttendenceTable extends Migration
     {
         Schema::create('attendence', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('student_id')->unsigned();
+            $table->string('notes');
             $table->timestamps();
+
+            $table->foreign('student_id')
+                  ->references('id')
+                  ->on('students');
         });
     }
 

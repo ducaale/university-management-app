@@ -24,7 +24,7 @@
 <body layout="column">
 
 
-<div ng-view=""></div>
+<div ui-view></div>
 
 
 
@@ -40,6 +40,8 @@
   <!-- Angular Material Library -->
   <script src="bower_components/angular-material/angular-material.js"></script>
 
+  <!-- angular ui-router -->
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
   <!-- material table module -->
   <script src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
@@ -59,6 +61,7 @@
   <script src='js/controllers/feesCtrl.js'></script>
   <script src='js/controllers/studentFeesCtrl.js'></script>
   <script src='js/controllers/markCtrl.js'></script>
+  <script src="js/controllers/attendanceCtrl.js"></script>
   <script src='js/controllers/otherCtrl.js'></script>
 
   <!-- services -->

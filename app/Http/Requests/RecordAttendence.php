@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class MakeTransaction extends Request
+class RecordAttendence extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,7 @@ class MakeTransaction extends Request
     public function rules()
     {
         return [
-            'student_id' => 'required',
-            'amount' => 'required',
-            'type' => 'required',
-            'dept_or_credit' => 'required'
+            'student_id' => 'required'
         ];
     }
 }

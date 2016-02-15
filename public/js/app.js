@@ -6,70 +6,91 @@ var myApp = angular.module('myApp', [
   'ngMaterial',
   'services',
   'md.data.table',
-  'angular-loading-bar'
+  'angular-loading-bar',
+  'ui.router'
 ]);
 
 myApp.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
-    cfpLoadingBarProvider.includeSpinner = false;
-  }])
+  cfpLoadingBarProvider.includeSpinner = false;
+}])
 
-myApp.config(function($routeProvider) {
-  $routeProvider.
-  when('/', {
-    templateUrl: 'partials/index.html' ,
 
-  }).
-  when('/student', {
-    templateUrl: 'partials/studentList.html' ,
-    controller: 'studentsController',
-    controllerAs: 'vm'
-  }).
-  when('/student/:id', {
-    templateUrl:'partials/studentDetails.html',
-    controller: 'studentController'
-  }).
-  when('/guardian', {
-    templateUrl:'partials/guardianList.html',
-    controller: 'guardiansController',
-    controllerAs: 'vm'
-  }).
-  when('/fees', {
-    templateUrl:'partials/feesList.html',
-    controller: 'feesController',
-    controllerAs: 'vm'
-  }).
-  when('/student/:student_id/fees', {
-    templateUrl: 'partials/studentFees.html',
-    controller: 'studentFeesController',
-    controllerAs: 'vm'
-  }).
-  when('/staff', {
-    templateUrl: 'partials/staffList.html',
-    controller: 'staffsController'
-  }).
-  when('/staff/:id', {
-    templateUrl: 'partials/staffDetails.html',
-    controller: 'staffController'
-  }).
-  when('/mark', {
-    templateUrl: 'partials/studentMarkList.html',
-    controller: 'markController',
-    controllerAs: 'vm'
-  }).
-  when('/other', {
-    templateUrl: 'partials/other.html',
-    controller: 'otherController',
-    controllerAs: 'vm'
-  }).
-  otherwise({
-    redirectTo: '/'
-  });
-});
+myApp.config(function($stateProvider, $urlRouterProvider) {
 
-myApp.config(['$mdThemingProvider', function ($mdThemingProvider) {
-    'use strict';
+  $urlRouterProvider.otherwise('home')
 
-    $mdThemingProvider.theme('default')
-      .primaryPalette('brown')
-      .accentPalette('red');
+  $stateProvider
+    .state('home', {
+      url: '/home',
+      templateUrl: 'partials/index.html'
+    })
+    .state('students', {
+      url: '/student',
+      templateUrl: 'partials/studentList.html',
+      controller: 'studentsController',
+      controllerAs: 'vm'
+    })
+    .state('student', {
+      url: '/student/:id',
+      templateUrl: 'partials/studentDetails.html',
+      controller: 'studentController',
+      controllerAs: 'vm'
+    })
+    .state('guardian', {
+      url: '/guardian',
+      templateUrl: 'partials/guardianList.html',
+      controller: 'guardiansController',
+      controllerAs: 'vm'
+    })
+    .state('staffs', {
+      url: '/staff',
+      templateUrl: 'partials/staffList.html',
+      controller: 'staffsController',
+      controllerAs: 'vm'
+    })
+    .state('staff', {
+      url: '/staffs/:id',
+      templateUrl: 'partials/staffDetails.html',
+      controller: 'staffController',
+      controllerAs: 'vm'
+    })
+    .state('Fees', {
+      url: '/fees',
+      templateUrl: 'partials/feesList.html',
+      controller: 'feesController',
+      controllerAs: 'vm'
+    })
+    .state('studentFees', {
+      url: '/student/:student_id/fees',
+      templateUrl: 'partials/studentFees.html',
+      controller: 'studentFeesController',
+      controllerAs: 'vm'
+    })
+    .state('mark', {
+      url: '/mark',
+      templateUrl: 'partials/studentMarkList.html',
+      controller: 'markController',
+      controllerAs: 'vm'
+    })
+    .state('attendance', {
+      url: '/attendance',
+      templateUrl: 'partials/attendance.html',
+      controller: 'attendanceController',
+      controllerAs: 'vm'
+    })
+    .state('other', {
+      url: '/other',
+      templateUrl: 'partials/other.html',
+      controller: 'otherController',
+      controllerAs: 'vm'
+    })
+
+})
+
+myApp.config(['$mdThemingProvider', function($mdThemingProvider) {
+  'use strict';
+
+  $mdThemingProvider.theme('default')
+    .primaryPalette('brown')
+    .accentPalette('red');
 }])
