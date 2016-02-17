@@ -6,7 +6,7 @@
     .controller('studentController', studentController);
 
   function studentController($scope, $resource, $routeParams, Student) {
-    var student = Student.get({
+    Student.get({
       id: $routeParams.id
     }).$promise.then(function(data) {
       data.date_of_birth = new Date(data.date_of_birth);

@@ -7,7 +7,8 @@ var myApp = angular.module('myApp', [
   'services',
   'md.data.table',
   'angular-loading-bar',
-  'ui.router'
+  'ui.router',
+  'satellizer'
 ]);
 
 myApp.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
@@ -15,11 +16,18 @@ myApp.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
 }])
 
 
-myApp.config(function($stateProvider, $urlRouterProvider) {
+myApp.config(function($stateProvider, $urlRouterProvider, $authProvider) {
 
-  $urlRouterProvider.otherwise('home')
+  $authProvider.loginUrl = 'uh/public/api/authenticate';
+  $urlRouterProvider.otherwise('/auth')
 
   $stateProvider
+    .state('auth', {
+      url: '/auth',
+      templateUrl: 'partials/auth.html',
+      controller: 'authController',
+      controllerAs: 'vm'
+     })
     .state('home', {
       url: '/home',
       templateUrl: 'partials/index.html'
