@@ -70,6 +70,7 @@
 
   <!-- services -->
   <script src="js/services.js"></script>
+  <script src="js/services/auth.js"></script>
 
   <!-- directives -->
   <script src="js/directives.js"></script>

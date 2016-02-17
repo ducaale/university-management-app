@@ -35,6 +35,7 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(array('prefix' => 'api' ), function(){
     Route::post('authenticate', 'authenticateController@authenticate');
+    Route::get('authenticate/user', 'authenticateController@getAuthenticatedUser');
 
     Route::group(['middleware' => 'jwt.auth'], function(){
       Route::resource('student', 'studentController');

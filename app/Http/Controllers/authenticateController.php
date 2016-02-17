@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 
 class authenticateController extends Controller
 {
@@ -30,4 +31,22 @@ class authenticateController extends Controller
       //no errors token is returned
       return response()->json(compact('token'));
     }
+
+    public function getAuthenticatedUser()
+    {
+      try {
+        if(! $user = JWTAuth::parseToken()->authenticate()) {
+          return response()->json(['user_not_found'], 404);
+        }
+
+      } catch(TokenExpiredException $e) {
+          return response()->json(['token_expired'], $e->getStatusCode());
+      } catch (JWTException $e) {
+          return response()->json(['token_absent'], $e->getStatusCode());
+      }
+
+        //token is valid and user is found
+        return response()->json(compact('user'));
+    }
+
 }
