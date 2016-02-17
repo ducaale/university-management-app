@@ -5,12 +5,12 @@
     .module('myApp')
     .controller('studentFeesController', studentFeesController)
 
-  function studentFeesController($resource, $routeParams, StudentFee) {
+  function studentFeesController($resource, $stateParams, StudentFee) {
     var vm = this;
     vm.studentFees = [];
     vm.promise = studentFee;
 
-    var studentFee = StudentFee.query({student_id: $routeParams.student_id}).$promise.then(function(data) {
+    var studentFee = StudentFee.query({student_id: $stateParams.student_id}).$promise.then(function(data) {
       vm.studentFees = data;
     })
   }

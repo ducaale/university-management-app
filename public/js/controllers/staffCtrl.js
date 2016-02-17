@@ -5,12 +5,12 @@
     .module('myApp')
     .controller('staffController', staffController)
 
-  function staffController($scope, $resource, $routeParams, Staff) {
+  function staffController($scope, $resource, $stateParams, Staff) {
 
     $scope.staff = [];
 
     var staff = Staff.get({
-      id: $routeParams.id
+      id: $stateParams.id
     }).$promise.then(function(data) {
       data.date_of_birth = new Date(data.date_of_birth);
       $scope.staff = data;
