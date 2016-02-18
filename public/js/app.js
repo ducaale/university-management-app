@@ -23,10 +23,10 @@ myApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpPr
       responseError: function(rejection) {
         var $state = $injector.get('$state');
 
-        var rejectionReasons = ['token_not_provided', 'token_expired', 'token_absent', 'token_invalid' ];
+        var rejectionReasons = ['token_not_provided', 'token_expired', 'token_absent', 'token_invalid'];
 
         angular.forEach(rejectionReasons, function(value, key) {
-          if(rejection.data.error === value) {
+          if (rejection.data.error === value) {
             localStorage.removeItem('user');
             $state.go('auth');
           }
@@ -40,6 +40,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpPr
   $httpProvider.interceptors.push('redirectWhenLoggedOut');
 
   $authProvider.loginUrl = 'api/authenticate';
+
   $urlRouterProvider.otherwise('/auth')
 
   $stateProvider
@@ -48,7 +49,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpPr
       templateUrl: 'partials/auth.html',
       controller: 'authController',
       controllerAs: 'vm'
-     })
+    })
     .state('home', {
       url: '/home',
       templateUrl: 'partials/index.html'
@@ -113,6 +114,27 @@ myApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpPr
       controller: 'otherController',
       controllerAs: 'vm'
     })
+})
+
+
+myApp.run(function($rootScope, $state) {
+  console.log("state change");
+  $rootScope.$on('$stateChangeStart', function(event, toState) {
+    console.log("state change");
+    var user = JSON.parse(localStorage.getItem('user'));
+
+    if (user) {
+      $rootScope.authenticated = true;
+      $rootScope.currentUser = user;
+
+      if (toState.name === "auth") {
+
+        event.preventDefault();
+        $state.go('home');
+      }
+    }
+
+  })
 
 })
 

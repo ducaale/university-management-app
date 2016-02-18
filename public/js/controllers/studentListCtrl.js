@@ -47,7 +47,7 @@
 
     Batch.query().$promise.then(function(result) {
       vm.batches = result;
-    }, function(erro) {
+    }, function(error) {
       console.log(error);
     })
 

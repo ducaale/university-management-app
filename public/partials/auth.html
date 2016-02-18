@@ -1,23 +1,26 @@
-<div flex layout-align="center center">
-  <md-content>
-    <div flex layout="column" layout-padding>
-      <md-card>
-        <form name='login' novalidate>
+<div layout="row" flex layout-align="center center">
 
-          <md-input-container class="md-block">
-            <label>Email</label>
-            <input type="email" ng-model="vm.email" required>
-          </md-input-container>
+  <div layout="column" layout-align="center">
+    <md-card class="md-padding">
+      <form name='login' novalidate>
 
-          <md-input-container class="md-block">
-            <label>Password</label>
-            <input type="password" ng-model="vm.password" required>
-          </md-input-container>
+        <md-input-container class="md-block">
+          <label>Email</label>
+          <input type="email" ng-model="vm.email" required>
+        </md-input-container>
 
-          <md-button ng-click="vm.login()">login</md-button>
-          <p ng-show="vm.loginError">{{vm.loginErrorText}}</p>
-        </form>
-      </md-card>
-    </div>
-  </md-content>
+        <md-input-container class="md-block">
+          <label>Password</label>
+          <input type="password" ng-model="vm.password" required>
+          <div ngMessage="vm.loginError">{{vm.loginErrorText}}</div>
+        </md-input-container>
+
+        <md-button class="md-primary md-raised" ng-click="vm.login()">login</md-button>
+
+
+
+      </form>
+    </md-card>
+  </div>
+
 </div>
