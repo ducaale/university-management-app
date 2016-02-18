@@ -94,3 +94,7 @@ myApp.config(['$mdThemingProvider', function($mdThemingProvider) {
     .primaryPalette('brown')
     .accentPalette('red');
 }])
+
+myApp.config(["$mdIconProvider", function($mdIconProvider) {
+  $mdIconProvider.iconSet("avatars", 'https://raw.githubusercontent.com/angular/material/master/docs/app/icons/avatar-icons.svg', 24);
+}])

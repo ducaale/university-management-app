@@ -8,3 +8,11 @@ input[name="filled by"] {
 .content md-card {
 	background: #9C27B0;
 }
+
+.avatar {
+	height: 64px;
+	width: 64px;
+	border-radius: 50%;
+  display: inline-block;
+	overflow: hidden;
+}

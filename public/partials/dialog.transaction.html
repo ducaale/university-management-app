@@ -1,12 +1,22 @@
 <md-dialog>
   <md-dialog-content>
-    <div flex layout="row" layout-align="center center">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 ng-show="{{vm.transactionData.dept_or_credit == 'd'}}">transaction - payment</h2>
+        <h2 ng-show="{{vm.transactionData.dept_or_credit == 'c'}}">transaction - charges</h2>
+      </div>
+    </md-toolbar>
+
+    <div flex layout="row" layout-align="center center" md-padding>
       <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
+
+
 
         <form name='feeForm' novalidate>
 
 
-          <md-autocomplete md-floating-label="student name" md-selected-item="vm.selectedStudent" md-search-text="vm.searchStudent" md-items="student in vm.students | filter: vm.searchStudent" md-item-text="student.name" md-min-length="0" placeholder="select student" required>
+          <md-autocomplete md-floating-label="student name" md-selected-item="vm.selectedStudent" md-search-text="vm.searchStudent" md-items="student in vm.students | filter: vm.searchStudent" md-item-text="student.name" md-min-length="0" placeholder="select student"
+            required>
             <md-item-template>
               <span md-highlight-text="vm.searchStudent" md-highlight-flags="^i">{{student.id}} {{student.name}}</span>
             </md-item-template>

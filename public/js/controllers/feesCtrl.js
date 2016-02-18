@@ -28,7 +28,7 @@
       amount: '',
       type: '',
       descr: '',
-      dept_or_credit: 'c'
+      dept_or_credit: ''
     };
 
     vm.selected = [];
@@ -61,7 +61,6 @@
     }
 
     vm.makeTransaction = function(transactionData) {
-      console.log(transactionData);
       Fee.save(vm.transactionData).$promise.then(function(success) {
         Toast('success');
         vm.refresh();

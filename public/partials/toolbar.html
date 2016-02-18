@@ -7,8 +7,22 @@
       <span>{{title}}</span>
     </h2>
     <span flex></span>
-    <md-button class="md-icon-button" aria-label="More">
-          <md-icon class="material icons">more_vert</md-icon>
-        </md-button>
+    <md-menu>
+      <md-button class="md-icon-button" aria-label="More"  ng-click="$mdOpenMenu($event)">
+        <md-icon class="material icons">more_vert</md-icon>
+      </md-button>
+      <md-menu-content width="3">
+        <md-menu-item>
+
+          <md-button>
+            <div layout="row">
+            <p flex>logout</p>
+            <md-icon md-menu-align-target class="material-icons" style="margin: auto 3px auto 0;">exit_to_app</md-icon>
+            </div>
+          </md-button>
+
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
   </div>
 </md-toolbar>
