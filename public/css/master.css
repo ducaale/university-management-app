@@ -16,3 +16,7 @@ input[name="filled by"] {
   display: inline-block;
 	overflow: hidden;
 }
+
+body, md-content {
+  background-color: #f5f5f5 !important;
+}
