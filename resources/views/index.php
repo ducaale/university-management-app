@@ -49,6 +49,9 @@
   <!-- angular loading bar -->
   <script src="bower_components\angular-loading-bar\build\loading-bar.min.js"></script>
 
+  <!-- satellizer for jwt auth-->
+  <script src="bower_components\satellizer\satellizer.js"></script>
+
 
   <script src="js/app.js"></script>
 
@@ -63,9 +66,11 @@
   <script src='js/controllers/markCtrl.js'></script>
   <script src="js/controllers/attendanceCtrl.js"></script>
   <script src='js/controllers/otherCtrl.js'></script>
+  <script src='js/controllers/authCtrl.js'></script>
 
   <!-- services -->
   <script src="js/services.js"></script>
+  <script src="js/services/auth.js"></script>
 
   <!-- directives -->
   <script src="js/directives.js"></script>

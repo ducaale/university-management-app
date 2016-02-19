@@ -34,16 +34,22 @@ Route::group(['middleware' => ['web']], function () {
 
 
 Route::group(array('prefix' => 'api' ), function(){
-    Route::resource('student', 'studentController');
-    Route::resource('guardian', 'guardianController');
-    Route::resource('staff', 'staffController');
-    Route::resource('fee', 'feeController');
-    Route::resource('examType', 'examTypeController');
-    Route::resource('course', 'courseController');
-    Route::resource('mark', 'markController');
-    Route::resource('batch', 'batchController');
-    Route::resource('gender', 'genderController');
-    Route::resource('attendence', 'attendenceController');
+    Route::post('authenticate', 'authenticateController@authenticate');
+    Route::get('authenticate/user', 'authenticateController@getAuthenticatedUser');
 
-    Route::resource('student.fee', 'studentFeeController');
+    Route::group(['middleware' => 'jwt.auth'], function(){
+      Route::resource('student', 'studentController');
+      Route::resource('guardian', 'guardianController');
+      Route::resource('staff', 'staffController');
+      Route::resource('fee', 'feeController');
+      Route::resource('examType', 'examTypeController');
+      Route::resource('course', 'courseController');
+      Route::resource('mark', 'markController');
+      Route::resource('batch', 'batchController');
+      Route::resource('gender', 'genderController');
+      Route::resource('attendence', 'attendenceController');
+
+      Route::resource('student.fee', 'studentFeeController');
+    });
+
 });

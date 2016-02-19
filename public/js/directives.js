@@ -14,10 +14,14 @@ function toolbar(){
       title: '@'
     },
     controllerAs: 'vm',
-    controller: function($mdSidenav){
+    controller: function($mdSidenav, Auth){
       var vm = this;
       vm.toggleSideNav = function(menuId){
         $mdSidenav(menuId).toggle();
+      }
+
+      vm.logout = function() {
+        Auth.logout();
       }
     }
   }

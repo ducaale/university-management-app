@@ -118,6 +118,8 @@ services.factory('Attendance', ['$resource', function($resource) {
   });
 }]);
 
+
+
 services.factory('VerifyDelete', ['$mdDialog', function($mdDialog) {
   return function(user) {
     var confirm = $mdDialog.confirm()
