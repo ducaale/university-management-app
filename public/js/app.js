@@ -147,5 +147,5 @@ myApp.config(['$mdThemingProvider', function($mdThemingProvider) {
 }])
 
 myApp.config(["$mdIconProvider", function($mdIconProvider) {
-  $mdIconProvider.iconSet("avatars", 'https://raw.githubusercontent.com/angular/material/master/docs/app/icons/avatar-icons.svg', 24);
+  $mdIconProvider.iconSet("avatars", '../css/avatars.svg', 24);
 }])
