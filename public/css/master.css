@@ -1,3 +1,17 @@
+
+body{
+	font-family: Roboto, sans-serif;
+}
+
+body, md-content {
+  background-color: #f5f5f5 !important;
+}
+
+#view {
+	height: 100%;
+}
+
+
 input[name="filled by"] {
 	font-family: Satisfy, cursive;
 	font-weight:normal;
@@ -5,8 +19,13 @@ input[name="filled by"] {
 
 }
 
-.content md-card {
-	background: #9C27B0;
+.auth {
+	display: flex;
+	margin: auto;
+}
+
+#sidenav {
+	height: 100%;
 }
 
 .avatar {
@@ -17,6 +36,8 @@ input[name="filled by"] {
 	overflow: hidden;
 }
 
-body, md-content {
-  background-color: #f5f5f5 !important;
+
+md-list .md-button {
+	width: 100%;
+	text-align: left;
 }

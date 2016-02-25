@@ -1,46 +1,53 @@
+<md-sidenav id="sidenav" class="md-whiteframe-4dp" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+  <md-toolbar class="md-tall md-hue-2">
+    <span flex></span>
+    <div layout="column" class="md-toolbar-tools-bottom inset">
+      <div layout="row" layout-align="start center">
+        <md-icon class="avatar" md-svg-icon="avatars:svg-1"></md-icon>
+        <span flex></span>
+      </div>
+      <span></span>
+      <div>{{currentUser.name}}</div>
+    </div>
+  </md-toolbar>
+
+
+  <md-list>
+    <md-list-item>
+      <md-button ui-sref=".students">Students</md-button>
+    </md-list-item>
+    <md-list-item>
+      <md-button ui-sref=".guardians">Guardians</md-button>
+    </md-list-item>
+    <md-list-item>
+      <md-button ui-sref=".staffs">Staff</md-button>
+    </md-list-item>
+    <md-list-item>
+      <md-button ui-sref=".fees">Fees</md-button>
+    </md-list-item>
+    <md-list-item>
+      <md-button ui-sref=".mark">Marks</md-button>
+    </md-list-item>
+    <md-list-item>
+      <md-button ui-sref=".other">Other</md-button>
+    </md-list-item>
+
+  </md-list>
+
+
+</md-sidenav>
+
+
+
+<div class="container" layout="column" flex>
 <toolbar title='Dashboard'></toolbar>
-<side-nav></side-nav>
-
-<ul>
-  <li><a href="#/student">students</a></li>
-  <li><a href="#/guardian">guardian</a></li>
-  <li><a href="#/staff">staff</a></li>
-  <li><a href="#/fees">fees</a></li>
-  <li><a href="#/mark">marks</a></li>
-</ul>
-
-<div layout="row" class="content">
-  <md-card>
-    <md-card-content>
-      <md-card-title>
-        Students
-      </md-card-title>
-    </md-card-content>
-  </md-card>
-
-  <md-card>
-    <md-card-content>
-      <md-card-title>Guardians</md-card-title>
-    </md-card-content>
-  </md-card>
-
-  <md-card>
-    <md-card-content>
-      <md-card-title>Staff</md-card-title>
-    </md-card-content>
-  </md-card>
 
 
-  <md-card>
-    <md-card-content>
-      <md-card-title>Transactions</md-card-title>
-    </md-card-content>
-  </md-card>
+  <md-content flex>
 
-  <md-card>
+    <div ui-view></div>
 
-    <md-card-content>
-      <md-card-title>marks</md-card-title>
-    </md-card-content>
-  </md-card>
+  </md-content>
+
+
 </div>

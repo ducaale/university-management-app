@@ -54,61 +54,61 @@ myApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpPr
       url: '/home',
       templateUrl: 'partials/index.html'
     })
-    .state('students', {
+    .state('home.students', {
       url: '/student',
       templateUrl: 'partials/studentList.html',
       controller: 'studentsController',
       controllerAs: 'vm'
     })
-    .state('student', {
+    .state('home.student', {
       url: '/student/:id',
       templateUrl: 'partials/studentDetails.html',
       controller: 'studentController',
       controllerAs: 'vm'
     })
-    .state('guardian', {
+    .state('home.guardians', {
       url: '/guardian',
       templateUrl: 'partials/guardianList.html',
       controller: 'guardiansController',
       controllerAs: 'vm'
     })
-    .state('staffs', {
+    .state('home.staffs', {
       url: '/staff',
       templateUrl: 'partials/staffList.html',
       controller: 'staffsController',
       controllerAs: 'vm'
     })
-    .state('staff', {
+    .state('home.staff', {
       url: '/staffs/:id',
       templateUrl: 'partials/staffDetails.html',
       controller: 'staffController',
       controllerAs: 'vm'
     })
-    .state('Fees', {
+    .state('home.fees', {
       url: '/fees',
       templateUrl: 'partials/feesList.html',
       controller: 'feesController',
       controllerAs: 'vm'
     })
-    .state('studentFees', {
+    .state('home.studentFees', {
       url: '/student/:student_id/fees',
       templateUrl: 'partials/studentFees.html',
       controller: 'studentFeesController',
       controllerAs: 'vm'
     })
-    .state('mark', {
+    .state('home.mark', {
       url: '/mark',
       templateUrl: 'partials/studentMarkList.html',
       controller: 'markController',
       controllerAs: 'vm'
     })
-    .state('attendance', {
+    .state('home.attendance', {
       url: '/attendance',
       templateUrl: 'partials/attendance.html',
       controller: 'attendanceController',
       controllerAs: 'vm'
     })
-    .state('other', {
+    .state('home.other', {
       url: '/other',
       templateUrl: 'partials/other.html',
       controller: 'otherController',
