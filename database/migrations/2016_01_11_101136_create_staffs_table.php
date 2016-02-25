@@ -18,8 +18,13 @@ class CreateStaffsTable extends Migration
             $table->string('tel');
             $table->date('enrollment_date');
             $table->date('date_of_birth')->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
+
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users');
         });
     }
 

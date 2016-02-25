@@ -20,6 +20,7 @@ class CreateStudentsTable extends Migration
             $table->date('enrollment_date');
             $table->date('date_of_birth');
             $table->integer('guardians_id')->unsigned();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
 
@@ -29,6 +30,9 @@ class CreateStudentsTable extends Migration
                   ->references('id')
                   ->on('guardians');
 
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users');
         });
     }
 

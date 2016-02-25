@@ -1,30 +1,31 @@
 <!DOCTYPE html>
- <html lang="en" ng-app="myApp">
+<html lang="en" ng-app="myApp">
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8"/>
   <title>My AngularJS App</title>
   <!-- Angular Material style sheet -->
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
 
   <!-- material table style sheet -->
-  <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css"
-  rel="stylesheet" type="text/css"/>
+  <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css" />
 
   <!-- fonts & icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
   <link href="http://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" />
 
   <!-- angular loading-bar css-->
-<link rel="stylesheet" href="bower_components\angular-loading-bar\build\loading-bar.min.css" >
+  <link rel="stylesheet" href="bower_components\angular-loading-bar\build\loading-bar.min.css"/>
 
-<!-- my stylesheet -->
-<link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8">
+  <!-- my stylesheet -->
+  <link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8"/>
 
 </head>
-<body layout="column">
+
+<body>
 
 
-<div ui-view></div>
+  <div ui-view layout="row" id="view"></div>
 
 
 
@@ -76,4 +77,5 @@
   <script src="js/directives.js"></script>
 
 </body>
+
 </html>

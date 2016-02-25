@@ -38,6 +38,12 @@ Route::group(array('prefix' => 'api' ), function(){
     Route::get('authenticate/user', 'authenticateController@getAuthenticatedUser');
 
     Route::group(['middleware' => 'jwt.auth'], function(){
+
+      Route::post('register', 'authenticateController@register');
+
+      Route::resource('student.fee', 'studentFeeController');
+      Route::get('student/mark', 'studentMarkController@index');
+
       Route::resource('student', 'studentController');
       Route::resource('guardian', 'guardianController');
       Route::resource('staff', 'staffController');
@@ -49,7 +55,7 @@ Route::group(array('prefix' => 'api' ), function(){
       Route::resource('gender', 'genderController');
       Route::resource('attendence', 'attendenceController');
 
-      Route::resource('student.fee', 'studentFeeController');
+
     });
 
 });

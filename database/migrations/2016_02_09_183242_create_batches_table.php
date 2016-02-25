@@ -16,7 +16,12 @@ class CreateBatchesTable extends Migration
             $table->increments('id');
             $table->string('batch_name');
             $table->date('registered_at');
+            $table->integer('department_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('department_id')
+                  ->references('id')
+                  ->on('departments');
         });
     }
 

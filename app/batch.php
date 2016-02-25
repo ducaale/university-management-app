@@ -9,7 +9,7 @@ class batch extends Model
     protected $table = 'batches';
 
     protected $fillable = [
-      'batch_name'
+      'batch_name', 'registered_at', 'department_id'
     ];
 
     public function setBatchNameAttribute($value){
