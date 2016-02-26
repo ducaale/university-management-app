@@ -25,7 +25,7 @@
 <body>
 
 
-  <div ui-view layout="row" id="view"></div>
+  <div ui-view layout="column" id="view"></div>
 
 
 
@@ -54,27 +54,50 @@
   <script src="bower_components\satellizer\satellizer.js"></script>
 
 
-  <script src="js/app.js"></script>
+  <script src="app.module.js"></script>
 
-  <!-- controllers -->
-  <script src="js/controllers/studentListCtrl.js"></script>
-  <script src='js/controllers/studentCtrl.js'></script>
-  <script src='js/controllers/guardianListCtrl.js'></script>
-  <script src='js/controllers/staffListCtrl.js'></script>
-  <script src='js/controllers/staffCtrl.js'></script>
-  <script src='js/controllers/feesCtrl.js'></script>
-  <script src='js/controllers/studentFeesCtrl.js'></script>
-  <script src='js/controllers/markCtrl.js'></script>
-  <script src="js/controllers/attendanceCtrl.js"></script>
-  <script src='js/controllers/otherCtrl.js'></script>
-  <script src='js/controllers/authCtrl.js'></script>
 
-  <!-- services -->
-  <script src="js/services.js"></script>
-  <script src="js/services/auth.js"></script>
+  <!-- admission files -->
+  <script src="admission/admission.module.js"></script>
+  <script src="admission/controllers/guardianList.ctrl.js"></script>
+  <script src="admission/controllers/staff.ctrl.js"></script>
+  <script src="admission/controllers/staffList.ctrl.js"></script>
+  <script src="admission/controllers/student.ctrl.js"></script>
+  <script src="admission/controllers/studentList.ctrl.js"></script>
+  <script src="admission/services/gender.service.js"></script>
+  <script src="admission/services/guardian.service.js"></script>
+  <script src="admission/services/staff.service.js"></script>
+  <script src="admission/services/student.service.js"></script>
 
-  <!-- directives -->
-  <script src="js/directives.js"></script>
+  <!-- academic files -->
+  <script src="academic/academic.module.js"></script>
+  <script src="academic/controllers/scores.ctrl.js"></script>
+  <script src="academic/controllers/other.ctrl.js"></script>
+  <script src="academic/services/batch.service.js"></script>
+  <script src="academic/services/course.service.js"></script>
+  <script src="academic/services/examType.service.js"></script>
+  <script src="academic/services/scores.service.js"></script>
+
+  <!-- fees files -->
+  <script src="fees/fees.module.js"></script>
+  <script src="fees/controllers/fees.ctrl.js"></script>
+  <script src="fees/services/fee.service.js"></script>
+
+  <!-- attendance files -->
+  <script src="attendance/attendance.module.js"></script>
+  <script src="attendance/controllers/attendance.ctrl.js"></script>
+  <script src="attendance/services/attendance.service.js"></script>
+
+  <!-- auth files -->
+  <script src="auth/auth.module.js"></script>
+  <script src="auth/controllers/auth.ctrl.js"></script>
+  <script src="auth/services/auth.service.js"></script>
+
+  <!-- other files -->
+  <script src="other/services/toast.service.js"></script>
+  <script src="other/services/verifyDelete.service.js"></script>
+  <script src="other/directives/directives.js"></script>
+
 
 </body>
 
