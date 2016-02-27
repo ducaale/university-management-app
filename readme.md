@@ -27,28 +27,8 @@ php artisan migrate:install
 ```
 php artisan migrate:refresh
 ```
-###seeding the Database with intial data
-
 ```
-php artisan db:seed --class=facultyTableSeeder
-```
-```
-php artisan db:seed --class=departmentTableSeeder
-```
-```
-php artisan db:seed --class=batchesTableSeeder
-```
-```
-php artisan db:seed --class=genderTableSeeder
-```
-```
-php artisan db:seed --class=userTableSeeder
-```
-```
-php artisan db:seed --class=guardiansTableSeeder
-```
-```
-php artisan db:seed --class=studentsTableSeeder
+php artisan db:seed
 ```
 
 ###Running the program
