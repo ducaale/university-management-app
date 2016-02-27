@@ -28,25 +28,25 @@ php artisan migrate:refresh
 ###seeding the Database with intial data
 
 ```
-php artisan db:seeder -class=facultyTableSeeder
+php artisan db:seed -class=facultyTableSeeder
 ```
 ```
-php artisan db:seeder -class=departmentTableSeeder
+php artisan db:seed -class=departmentTableSeeder
 ```
 ```
-php artisan db:seeder -class=batchesTableSeeder
+php artisan db:seed -class=batchesTableSeeder
 ```
 ```
-php artisan db:seeder -class=genderTableSeeder
+php artisan db:seed -class=genderTableSeeder
 ```
 ```
-php artisan db:seeder -class=userTableSeeder
+php artisan db:seed -class=userTableSeeder
 ```
 ```
-php artisan db:seeder -class=guardiansTableSeeder
+php artisan db:seed -class=guardiansTableSeeder
 ```
 ```
-php artisan db:seeder -class=studentsTableSeeder
+php artisan db:seed -class=studentsTableSeeder
 ```
 
 ###Running the program
