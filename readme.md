@@ -3,9 +3,9 @@ this app use laravel framework as backend and angularjs as frontend. for authent
 
 
 ###requirement
-*PHP
-*MySql
-*composer
+-PHP
+-MySql
+-composer
 
 ###Installation
 ```
@@ -50,10 +50,10 @@ php artisan db:seed --class=studentsTableSeeder
 ```
 
 ###Running the program
-running this command will start server at port 8080
+running this command will start server at port 8000
 ```
 php artisan serve
 ```
 ###using the program
-user name: bcs1-12
-password:secret
+-user name: bcs1-12
+-password:secret
