@@ -4,7 +4,9 @@ this app use laravel framework as backend and angularjs as frontend. for authent
 
 ###requirement
 -PHP
+
 -MySql
+
 -composer
 
 ###Installation
@@ -56,4 +58,5 @@ php artisan serve
 ```
 ###using the program
 -user name: bcs1-12
+
 -password:secret
