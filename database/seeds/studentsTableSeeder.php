@@ -16,13 +16,13 @@ class studentsTableSeeder extends Seeder
       Model::unguard();
 
       $students = array(
-        ['id_no' => '1', 'name' => 'muse cali', 'tel'=> '123-123-456',
+        ['id_no' => '1', 'name' => 'muse cali', 'gender_type_id'=> 1, 'tel'=> '123-123-456', 'batch_id' => 1,
          'enrollment_date' => date("Y-m-d"), 'date_of_birth'=> date("Y-m-d"),
          'guardians_id' => 1, 'user_id'=> 1]
-
       );
 
       foreach ($students as $student) {
         Student::create($student);
     }
+  }
 }

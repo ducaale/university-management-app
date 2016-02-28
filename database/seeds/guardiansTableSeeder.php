@@ -22,7 +22,7 @@ class guardiansTableSeeder extends Seeder
       );
 
       foreach ($guardians as $guardian) {
-        Gaurdian::create($guardian);
+        Guardian::create($guardian);
     }
-    }
+  }
 }
