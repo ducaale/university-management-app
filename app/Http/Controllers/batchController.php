@@ -7,13 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Batch;
+use DB;
 use App\Http\Requests\RegisterBatch;
 
 class batchController extends Controller
 {
     public function index() {
-      $batch = Batch::all()->toArray();
+      $batch = DB::table('faculty')
+                  ->select('batches.id','batches.batch_name','batches.registered_at','departments.department_name','faculty.faculty_name')
+                  ->join('departments', 'departments.faculty_id', '=', 'faculty.id')
+                  ->join('batches', 'batches.department_id', '=', 'departments.id')
+                  ->get();
       return $batch;
     }
 
