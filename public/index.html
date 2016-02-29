@@ -19,30 +19,32 @@
 
     <md-list>
       <md-list-item>
-        <md-button ui-sref=".students">Students</md-button>
+        <md-button ui-sref=".students" ui-sref-active="md-primary">Students</md-button>
       </md-list-item>
       <md-list-item>
-        <md-button ui-sref=".guardians">Guardians</md-button>
+        <md-button ui-sref=".guardians" ui-sref-active="md-primary">Guardians</md-button>
       </md-list-item>
       <md-list-item>
-        <md-button ui-sref=".staffs">Staff</md-button>
+        <md-button ui-sref=".staffs" ui-sref-active="md-primary">Staff</md-button>
       </md-list-item>
       <md-list-item>
-        <md-button ui-sref=".fees">Fees</md-button>
+        <md-button ui-sref=".fees" ui-sref-active="md-primary">Fees</md-button>
       </md-list-item>
       <md-list-item>
-        <md-button ui-sref=".scores">Marks</md-button>
+        <md-button ui-sref=".scores" ui-sref-active="md-primary">Marks</md-button>
       </md-list-item>
       <md-list-item>
-        <md-button ui-sref=".other">Other</md-button>
+        <md-button ui-sref=".attendance" ui-sref-active="md-primary">Attendance</md-button>
       </md-list-item>
-
+      <md-list-item>
+        <md-button ui-sref=".other" ui-sref-active="md-primary">Other</md-button>
+      </md-list-item>
     </md-list>
 
 
   </md-sidenav>
 
-  <md-content flex>
+  <md-content class="main-content" flex>
 
     <div ui-view></div>
 
