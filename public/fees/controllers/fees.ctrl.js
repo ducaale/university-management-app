@@ -73,7 +73,7 @@
       $mdDialog.show({
         controller: 'Dialog2Controller',
         controllerAs: 'vm',
-        templateUrl: 'partials/dialog.transaction.html',
+        templateUrl: 'fees/partials/dialog.transaction.html',
         parent: angular.element(document.body),
         targetEvent: $event,
         locals: {
