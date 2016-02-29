@@ -68,7 +68,7 @@
 
     }
 
-    vm.isMatch = function(x) {
+    function isMatch(x) {
       if (marksData[x].mark == original[x].mark &&
         marksData[x].course_id == original[x].course_id &&
         marksData[x].exam_type_id == original[x].exam_type_id) {
@@ -99,13 +99,11 @@
       for (var x in marksData) {
         if (marksData[x].mark != null) {
           if (original[x].id == null) {
-            console.log(original[x]);
+
             Score.save(marksData[x]);
-            console.log(original[x]);
-          } else if (vm.isMatch(x) == false) {
-            console.log('update');
-            console.log(original[x]);
-            console.log(marksData[x]);
+
+          } else if (!isMatch(x)) {
+
             Score.update(marksData[x]);
           }
         }
