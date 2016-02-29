@@ -11,7 +11,6 @@
   <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css" />
 
   <!-- fonts & icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
   <link href="http://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" />
 
   <!-- angular loading-bar css-->
@@ -98,6 +97,10 @@
   <script src="other/services/verifyDelete.service.js"></script>
   <script src="other/directives/directives.js"></script>
 
+  <!-- studentScore files -->
+  <script src="studentScore/studentScore.module.js"></script>
+  <script src="studentScore/controllers/studentScore.ctrl.js"></script>
+  <script src="studentScore/services/studentScore.service.js"></script>
 
 </body>
 
