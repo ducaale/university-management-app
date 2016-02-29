@@ -7,6 +7,7 @@ var myApp = angular.module('myApp', [
   'attendance',
   'auth',
   'fees',
+  'studentScore',
   'ngRoute',
   'ngResource',
   'ngMaterial',
@@ -66,7 +67,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpPr
       controllerAs: 'vm'
     })
     .state('home.student', {
-      url: '/student/:id',
+      url: '/students/:id',
       templateUrl: 'admission/partials/studentDetails.html',
       controller: 'studentController',
       controllerAs: 'vm'
@@ -113,6 +114,12 @@ myApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpPr
       controller: 'otherController',
       controllerAs: 'vm'
     })
+    .state('home.studentScore', {
+      url: '/studentScore',
+      templateUrl: 'studentScore/partials/studentScore.html',
+      controller: 'studentScoreController',
+      controllerAs: 'vm'
+    })
 })
 
 
@@ -146,5 +153,17 @@ myApp.config(['$mdThemingProvider', function($mdThemingProvider) {
 }])
 
 myApp.config(["$mdIconProvider", function($mdIconProvider) {
-  $mdIconProvider.iconSet("avatars", '../css/avatars.svg', 24);
+  $mdIconProvider
+    .iconSet("avatars", 'css/svg/avatars.svg', 24)
+    .icon("menu", "css/svg/ic_menu_white_24px.svg", 24)
+    .icon("delete", "css/svg/ic_delete_black_24px.svg", 24)
+    .icon("search", "css/svg/ic_search_black_24px.svg", 24)
+    .icon("book", "css/svg/ic_book_black_24px.svg", 24)
+    .icon("attach_money", "css/svg/ic_attach_money_white_24px.svg", 24)
+    .icon("add", "css/svg/ic_add_white_24px.svg", 24)
+    .icon("edit", "css/svg/ic_edit_white_24px.svg", 24)
+    .icon("more_vert_black", "css/svg/ic_more_vert_black_24px.svg", 24)
+    .icon("more_vert_white", "css/svg/ic_more_vert_white_24px.svg", 24)
+    .icon("info", "css/svg/ic_info_black_24px.svg", 24)
+    .icon("credit", "css/svg/ic_credit_card_white_24px.svg", 24)
 }])
