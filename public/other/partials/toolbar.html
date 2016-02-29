@@ -1,7 +1,7 @@
 <md-toolbar class="md-whiteframe-1dp">
   <div class="md-toolbar-tools">
     <md-button class="md-icon-button" hide-gt-sm aria-label="Settings" ng-click="vm.toggleSideNav('left')">
-      <md-icon class="material icons">menu</md-icon>
+      <md-icon md-svg-icon="menu"></md-icon>
     </md-button>
     <h2>
       <span>{{title}}</span>
@@ -9,18 +9,18 @@
     <span flex></span>
     <md-menu>
       <md-button class="md-icon-button" aria-label="More"  ng-click="$mdOpenMenu($event)">
-        <md-icon class="material icons">more_vert</md-icon>
+        <md-icon md-svg-icon="more_vert_white"></md-icon>
       </md-button>
       <md-menu-content width="3">
         <md-menu-item>
-
-          <md-button ng-click="vm.logout()">
-            <div layout="row">
-            <p flex>logout</p>
-            <md-icon md-menu-align-target class="material-icons" style="margin: auto 3px auto 0;">exit_to_app</md-icon>
-            </div>
+          <md-button>
+            <p flex>About</p>
           </md-button>
-
+        </md-menu-item>
+        <md-menu-item>
+          <md-button ng-click="vm.logout()">
+            <p flex>Log Out</p>
+          </md-button>
         </md-menu-item>
       </md-menu-content>
     </md-menu>
