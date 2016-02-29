@@ -1,0 +1,25 @@
+<md-content>
+
+  <select ng-model="vm.selectedExam">
+    <option ng-repeat="examType in vm.examTypes" value={{examType.exam_type}}>{{examType.exam_type}}</option>
+  </select>
+
+  <table>
+    <tr>
+      <th>
+        Course
+      </th>
+      <th>
+        Score
+      </th>
+    </tr>
+    <tr ng-repeat="score in vm.scores | filter: vm.selectedExam">
+      <td>
+        {{score.course_name}}
+      </td>
+      <td>
+        {{score.mark}}
+      </td>
+    </tr>
+  </table>
+</md-content>
