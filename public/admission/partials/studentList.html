@@ -4,7 +4,7 @@
   <md-content>
     <md-card style='padding:1px 24px 1px 24px'>
       <md-input-container>
-        <md-icon class="material icons">search</md-icon>
+        <md-icon md-svg-icon="search"></md-icon>
         <label>search</label>
         <input type="text" name="search" ng-model='vm.search'>
       </md-input-container>
@@ -41,41 +41,24 @@
               <td md-cell>
                 <md-menu md-position-mode="target-right target">
                   <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
-                    <md-icon md-menu-origin class="material-icons">more_vert</md-icon>
+                    <md-icon md-svg-icon="more_vert_black"></md-icon>
                   </md-button>
                   <md-menu-content width="3">
-                    <md-menu-item>
-                      <md-button>
-                        <div layout="row">
-                          <p flex> Edit </p>
-                          <md-icon md-menu-align-target class="material-icons" style="margin: auto 3px auto 0;">edit</md-icon>
-                        </div>
-                      </md-button>
-                    </md-menu-item>
 
                     <md-menu-item>
                       <md-button ng-click="vm.delete(student, $index)">
                         <div layout="row">
                           <p flex> Delete </p>
-                          <md-icon md-menu-align-target class="material-icons" style="margin: auto 3px auto 0;">delete</md-icon>
+                          <md-icon md-menu-align-target md-svg-icon="delete" style="margin: auto 3px auto 0;"></md-icon>
                         </div>
                       </md-button>
                     </md-menu-item>
 
                     <md-menu-item>
-                      <md-button ng-click='vm.fees(student.id)'>
-                        <div layout="row">
-                          <p flex> Fees </p>
-                          <md-icon md-menu-align-target class="material-icons" style="margin: auto 3px auto 0;">attach_money</md-icon>
-                        </div>
-                      </md-button>
-                    </md-menu-item>
-
-                    <md-menu-item>
-                      <md-button ng-click='vm.moreInfo(student.id)'>
+                      <md-button ng-click="vm.moreInfo(student.id)">
                         <div layout="row">
                           <p flex> More </p>
-                          <md-icon md-menu-align-target class="material-icons" style="margin: auto 3px auto 0;">info</md-icon>
+                          <md-icon md-menu-align-target md-svg-icon="info" style="margin: auto 3px auto 0;"></md-icon>
                         </div>
                       </md-button>
                     </md-menu-item>
@@ -94,5 +77,5 @@
 
 
 <md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="vm.openDialog()">
-  <md-icon class="material-icons md-light">add</md-icon>
+  <md-icon md-svg-icon="add"></md-icon>
 </md-button>

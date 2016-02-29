@@ -1,9 +1,12 @@
 <md-dialog aria-label="Register Student">
+  <md-dialog-content>
 
+    <md-toolbar>
+      <h2>Student Registration Form</h2>
+    </md-toolbar>
 
-      <md-dialog-content>
-        <div flex layout="row" layout-align="center center">
-          <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
+    <div flex layout="row" layout-align="center center">
+      <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
 
         <form name="registerForm" novalidate>
 
@@ -31,16 +34,13 @@
             </md-select>
           </md-input-container>
 
-          <md-input-container>
-            <label>select gender</label>
-            <md-select ng-model="data.gender_type_id" required>
-              <md-option ng-repeat="gender in gender" value="{{gender.id}}">
-                {{gender.gender_type}}
-              </md-option>
-            </md-select>
-          </md-input-container>
+          <md-radio-group ng-model="data.gender_type_id">
+            <md-radio-button ng-repeat="gender in gender" value="{{gender.id}}">
+              {{gender.gender_type}}
+            </md-radio-button>
+          </md-radio-group>
 
-          <div>
+
             <md-input-container>
               <label>date of birth</label>
               <input type='date' ng-model="data.date_of_birth" required>
@@ -50,7 +50,7 @@
               <label>enrollment date</label>
               <input type='date' ng-model="data.enrollment_date" required>
             </md-input-container>
-          </div>
+
 
           <md-autocomplete md-floating-label="guardian name" required md-selected-item="selectedGuardian" md-search-text="searchGuardian" md-items="guardian in guardians | filter: searchGuardian" md-item-text="guardian.name" md-min-length="0" placeholder="select guardian"
             required>
@@ -62,7 +62,7 @@
         </form>
       </div>
     </div>
-      </md-dialog-content>
+  </md-dialog-content>
 
 
   <md-dialog-actions layout="row">

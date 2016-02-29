@@ -5,7 +5,7 @@
     .controller('studentsController', studentController)
     .controller('Dialog1Controller', Dialog1Controller)
 
-  function studentController($resource, $location, $mdDialog, Student, Guardian, Batch, Gender, VerifyDelete, Toast) {
+  function studentController($resource, $state, $stateParams, $mdDialog, $mdMedia, Student, Guardian, Batch, Gender, VerifyDelete, Toast) {
     var vm = this;
 
     vm.search = [];
@@ -23,7 +23,7 @@
       date_of_birth: '',
       enrollment_date: new Date(),
       guardians_id: '',
-      gender_type_id: ''
+      gender_type_id: '1'
     };
 
     vm.selected = [];
@@ -77,12 +77,8 @@
       })
     }
 
-    vm.moreInfo = function(id) {
-      $location.path('student/' + id);
-    }
-
-    vm.fees = function(student_id) {
-      $location.path('student/' + student_id + '/fees');
+    vm.moreInfo = function(studentId) {
+      $state.go('home.student', ({id: studentId}));
     }
 
 
