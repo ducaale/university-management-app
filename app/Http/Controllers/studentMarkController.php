@@ -20,7 +20,7 @@ class studentMarkController extends Controller
       }
 
       $marks = DB::table('marks')
-                  ->select('student_id', 'course_name', 'exam_type', 'mark')
+                  ->select('student_id', 'course_name', 'exam_type', 'semester', 'mark')
                   ->join('courses', 'courses.id', '=', 'marks.course_id')
                   ->join('exam_types', 'exam_types.id', '=', 'marks.exam_type_id')
                   ->where('student_id', '=', $id)

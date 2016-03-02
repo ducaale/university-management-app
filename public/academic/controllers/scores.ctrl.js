@@ -29,13 +29,6 @@
     var original = [];
 
 
-    Score.query().$promise.then(function(result) {
-      original = angular.copy(result);
-      vm.marks = result;
-    }, function(error) {
-      console.log(error);
-    });
-
     Course.query().$promise.then(function(result) {
       vm.courses = result;
     }, function(error) {
@@ -56,33 +49,34 @@
 
     vm.query = function() {
       Score.query({
-        exam_type_id: parseInt(vm.details.course.id),
-        course_id: parseInt(vm.details.examType.id),
+        course_id: parseInt(vm.details.course.id),
+        exam_type_id: parseInt(vm.details.examType.id),
         batch_id: parseInt(vm.details.batch.id)
       }).$promise.then(function(result) {
         vm.marks = result;
-        original = angular.copy(result);
       }, function(error) {
         console.log(error);
       });
 
     }
 
-    function isMatch(x) {
-      if (marksData[x].mark == original[x].mark &&
-        marksData[x].course_id == original[x].course_id &&
-        marksData[x].exam_type_id == original[x].exam_type_id) {
-        return true;
-      } else {
-        return false;
-      }
+    function refreshOriginal() {
+      Score.query({
+        course_id: parseInt(vm.details.course.id),
+        exam_type_id: parseInt(vm.details.examType.id),
+        batch_id: parseInt(vm.details.batch.id)
+      }).$promise.then(function(result) {
+        original = angular.copy(result);
+      }, function(error) {
+        console.log(error);
+      });
     }
 
-    vm.save = function() {
 
+    vm.save = function() {
+      refreshOriginal();
       marksData = [];
       for (var x in vm.marks) {
-
         marksData.push({
           id: vm.marks[x].id,
           student_id: vm.marks[x].student_id,
@@ -93,23 +87,18 @@
           semester: vm.details.semester,
           filled_by: vm.marks.filled_by
         });
-
-
       }
-      for (var x in marksData) {
-        if (marksData[x].mark != null) {
-          if (original[x].id == null) {
 
-            Score.save(marksData[x]);
-
-          } else if (!isMatch(x)) {
-
-            Score.update(marksData[x]);
-          }
+      for (var x in original) {
+        if (original[x].id == null) {
+          Score.save(marksData[x]);
+        } else if (original[x].mark != marksData[x].mark) {
+          Score.update(marksData[x]);
         }
+        console.log(marksData);
       }
     }
-    vm.query();
+
 
 
   }
