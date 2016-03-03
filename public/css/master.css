@@ -46,3 +46,7 @@ md-toolbar h2 {
   height: 95%;
   border-radius: 0;
 }
+md-toolbar.md-table-toolbar.alternate {
+  color: #795548;
+  background-color: #EFEBE9;
+}

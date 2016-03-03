@@ -8,7 +8,7 @@
   Attendance.$inject = ['$resource'];
 
   function Attendance($resource) {
-    return $resource('api/attendence/:id', {
+    return $resource('api/attendance/:id', {
       id: '@id'
     }, {
       'update': {

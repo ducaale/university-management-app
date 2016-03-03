@@ -108,6 +108,12 @@ myApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpPr
       controller: 'attendanceController',
       controllerAs: 'vm'
     })
+    .state('home.recordAttendance', {
+      url: '/attendance/record',
+      templateUrl: 'attendance/partials/recordAbsentee.html',
+      controller: 'recordAbsenteeController',
+      controllerAs: 'vm'
+    })
     .state('home.other', {
       url: '/other',
       templateUrl: 'academic/partials/other.html',
@@ -120,13 +126,14 @@ myApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpPr
       controller: 'studentScoreController',
       controllerAs: 'vm'
     })
+
 })
 
 
 myApp.run(function($rootScope, $state) {
-  console.log("state change");
+
   $rootScope.$on('$stateChangeStart', function(event, toState) {
-    console.log("state change");
+
     var user = JSON.parse(localStorage.getItem('user'));
 
     if (user) {
@@ -166,4 +173,5 @@ myApp.config(["$mdIconProvider", function($mdIconProvider) {
     .icon("more_vert_white", "css/svg/ic_more_vert_white_24px.svg", 24)
     .icon("info", "css/svg/ic_info_black_24px.svg", 24)
     .icon("credit", "css/svg/ic_credit_card_white_24px.svg", 24)
+    .icon("save", "css/svg/ic_save_white_24px.svg", 24)
 }])

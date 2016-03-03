@@ -7,27 +7,28 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Http\Requests\RecordAttendence;
+use App\Http\Requests\RecordAttendance;
 use DB;
+use App\Attendance;
 
-class attendenceController extends Controller
+class attendanceController extends Controller
 {
 
     public function index()
     {
-        $attendence = DB::table('attendence')
-                        ->select('attendence.*','students.*')
+        $attendance = DB::table('attendence')
+                        ->select('attendence.*','students.name','students.id')
                         ->join('students', 'students.id', '=', 'attendence.student_id')
                         ->get();
 
-        return $attendence;
+        return $attendance;
     }
 
 
 
-    public function store(RecordAttendence $request)
+    public function store(RecordAttendance $request)
     {
-        //
+      Attendance::create($request->all());
     }
 
 
@@ -37,7 +38,7 @@ class attendenceController extends Controller
     }
 
 
-    public function update(RecordAttendence $request, $id)
+    public function update(RecordAttendance $request, $id)
     {
         //
     }

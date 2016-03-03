@@ -85,6 +85,7 @@
   <!-- attendance files -->
   <script src="attendance/attendance.module.js"></script>
   <script src="attendance/controllers/attendance.ctrl.js"></script>
+  <script src="attendance/controllers/recordAbsentee.ctrl.js"></script>
   <script src="attendance/services/attendance.service.js"></script>
 
   <!-- auth files -->

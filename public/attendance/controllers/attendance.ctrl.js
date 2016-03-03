@@ -4,19 +4,13 @@
     .module('attendance')
     .controller('attendanceController', attendanceController);
 
-    function attendanceController(Attendance, Student) {
+    function attendanceController(Attendance) {
       var vm = this;
-      vm.attandance = [];
-      vm.students = [];
+      vm.absents = [];
+
 
       Attendance.query().$promise.then(function(result) {
-        vm.attendance = result
-      }, function(error) {
-        console.log(error);
-      })
-
-      Student.query().$promise.then(function(result) {
-        vm.students = result
+        vm.absents = result
       }, function(error) {
         console.log(error);
       })

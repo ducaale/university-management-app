@@ -53,7 +53,7 @@ Route::group(array('prefix' => 'api' ), function(){
       Route::resource('mark', 'markController');
       Route::resource('batch', 'batchController');
       Route::resource('gender', 'genderController');
-      Route::resource('attendence', 'attendenceController');
+      Route::resource('attendance', 'attendanceController');
 
 
     });
