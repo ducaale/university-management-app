@@ -5,9 +5,9 @@
     .module('attendance')
     .controller('recordAbsenteeController', recordAbsenteeController)
 
-    recordAbsenteeController.$inject = ['$mdEditDialog', '$filter','Student', 'Attendance'];
+    recordAbsenteeController.$inject = ['$mdEditDialog', '$filter', '$state','Student', 'Attendance'];
 
-    function recordAbsenteeController($mdEditDialog, $filter, Student, Attendance) {
+    function recordAbsenteeController($mdEditDialog, $filter, $state, Student, Attendance) {
       var vm = this;
 
       vm.students = [];
@@ -26,9 +26,9 @@
 
       vm.save = function() {
         for(var x in getAbsent()){
-          console.log(getAbsent()[x]);
           Attendance.save(getAbsent()[x]);
         }
+        $state.go("home.attendance");
       }
 
       function getAbsent() {
