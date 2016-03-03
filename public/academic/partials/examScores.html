@@ -1,42 +1,58 @@
-
-
-
 <form name="marks" ng-submit="vm.save()" novalidate>
+  <div layout="row">
 
-  <select ng-model="vm.details.course.id" ng-click="vm.query()" required>
-    <option ng-repeat="course in vm.courses" value="{{course.id}}">{{course.course_name}}</option>
-  </select>
+    <div flex>
 
-  <select ng-model="vm.details.examType.id" ng-click="vm.query()" required>
-    <option ng-repeat="examType in vm.examTypes" value="{{examType.id}}">{{examType.exam_type}}</option>
-  </select>
+      <md-list>
+        <md-list-item ng-repeat="mark in vm.marks">
+          <p>{{mark.student_id}}- {{mark.name}}</p>
 
-  <select ng-model="vm.details.batch.id" ng-click="vm.query()" required>
-    <option ng-repeat="batch in vm.batches" value="{{batch.id}}">{{batch.batch_name}}</option>
-  </select>
+            <input type="number" ng-model="mark.mark" />
 
-  <md-input-container>
-    <label>Enter semester</label>
-    <input type="number" ng-model="vm.details.semester">
-  </md-input-container>
+        </md-list-item>
+      </md-list>
 
-  <md-input-container>
-    <label>Exam Date</label>
-    <input type="date" name="exam date" ng-model="vm.details.date" required>
-  </md-input-container>
+    </div>
 
 
-  <table>
-    <tr ng-repeat="mark in vm.marks ">
-      <td>{{mark.id_no}}</td>
-      <td>{{mark.name}}</td>
-      <td>{{mark.coure_name}}</td>
-      <td>{{mark.exam_type}}</td>
-      <td>
-        <input type="text" name="name" ng-model="mark.mark">
-      </td>
+    <div>
+      <md-card class="md-padding">
 
-    </tr>
-  </table>
+        <md-input-container>
+          <label>course</label>
+          <md-select ng-model="vm.details.course.id" ng-change="vm.query()" required>
+            <md-option ng-repeat="course in vm.courses" value="{{course.id}}">{{course.course_name}}</md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container>
+          <label>exam type</label>
+          <md-select ng-model="vm.details.examType.id" ng-change="vm.query()" required>
+            <md-option ng-repeat="examType in vm.examTypes" value="{{examType.id}}">{{examType.exam_type}}</md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container>
+          <label>batch</label>
+          <md-select ng-model="vm.details.batch.id" ng-change="vm.query()" required>
+            <md-option ng-repeat="batch in vm.batches" value="{{batch.id}}">{{batch.batch_name}}</md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container>
+          <label>Enter semester</label>
+          <input type="number" ng-model="vm.details.semester">
+        </md-input-container>
+
+        <md-input-container>
+          <label>Exam Date</label>
+          <input type="date" name="exam date" ng-model="vm.details.date" required>
+        </md-input-container>
+
+      </md-card>
+    </div>
+  </div>
+
+
   <md-button type="submit" class='md-primary md-raised' ng-disabled="marks.$invalid">save</md-button>
 </form>
