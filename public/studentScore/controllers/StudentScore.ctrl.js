@@ -5,19 +5,31 @@
     .module('studentScore')
     .controller('studentScoreController', studentScoreController)
 
-  studentScoreController.$inject = ['StudentScore'];
+  studentScoreController.$inject = ['StudentScore', 'ExamType'];
 
   function studentScoreController(StudentScore, ExamType) {
     var vm = this;
     vm.scores = [];
     vm.examTypes = [];
-    vm.selectedExam;
+    vm.semesters = [1, 2, 3, 4, 5, 6, 7, 8];
 
-    StudentScore.query().$promise.then(function(result) {
-      vm.scores = result
-    }, function(error) {
-      console.log(error);
+    vm.details = {
+      semester: '',
+      examType: ''
+    };
+
+    ExamType.query().$promise.then(function(result) {
+      vm.examTypes = result
     })
+
+    vm.query = function() {
+      StudentScore.query(vm.details).$promise.then(function(result) {
+        vm.scores = result
+      }, function(error) {
+        console.log(error);
+      })
+    }
+
 
   }
 

@@ -17,7 +17,7 @@
     </md-toolbar>
 
 
-    <md-list>
+    <md-list ng-show="{{currentUser.role == 'admin'}}">
       <md-list-item>
         <md-button ui-sref=".students" ui-sref-active="md-primary">Students</md-button>
       </md-list-item>
@@ -38,6 +38,12 @@
       </md-list-item>
       <md-list-item>
         <md-button ui-sref=".other" ui-sref-active="md-primary">Other</md-button>
+      </md-list-item>
+    </md-list>
+
+    <md-list ng-show="{{currentUser.role == 'student'}}">
+      <md-list-item>
+        <md-button ui-sref=".studentScore" ui-sref-active="md-primary">Scores</md-button>
       </md-list-item>
     </md-list>
 
