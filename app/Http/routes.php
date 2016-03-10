@@ -43,6 +43,7 @@ Route::group(array('prefix' => 'api' ), function(){
 
       Route::resource('student.fee', 'studentFeeController');
       Route::get('student/mark', 'studentMarkController@index');
+      Route::get('student/semester', 'studentSemesterController@index');
 
       Route::resource('student', 'studentController');
       Route::resource('guardian', 'guardianController');

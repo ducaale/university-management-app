@@ -102,7 +102,7 @@
   <script src="studentScore/studentScore.module.js"></script>
   <script src="studentScore/controllers/studentScore.ctrl.js"></script>
   <script src="studentScore/services/studentScore.service.js"></script>
-
+  <script src="studentScore/services/StudentSemester.service.js"></script>
 </body>
 
 </html>

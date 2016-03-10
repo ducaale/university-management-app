@@ -50,3 +50,6 @@ md-toolbar.md-table-toolbar.alternate {
   color: #795548;
   background-color: #EFEBE9;
 }
+tbody > .md-row:hover {
+  background-color: #EEEEEE;
+}
