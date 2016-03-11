@@ -21,7 +21,6 @@ myApp.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
   cfpLoadingBarProvider.includeSpinner = false;
 }])
 
-
 myApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide) {
 
   function redirectWhenLoggedOut($q, $injector) {

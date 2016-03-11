@@ -12,13 +12,13 @@ body, md-content {
 }
 .auth {
   display: flex;
-  margin: auto;
 }
 #sidenav {
   width: 250px;
 }
 md-sidenav md-toolbar {
   background: url('nav-background.png');
+  background-size: cover;
   font-size: 15px;
 }
 .avatar {

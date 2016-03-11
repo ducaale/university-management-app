@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
   <title>My AngularJS App</title>
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>

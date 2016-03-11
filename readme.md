@@ -37,6 +37,14 @@ running this command will start server at port 8000
 php artisan serve
 ```
 ###using the program
+admin
+
+-xaamud23
+
+-secret
+
+student
+
 -user name: bcs1-12
 
 -password:secret

@@ -6,11 +6,9 @@
         <span>Scores</span>
         <div flex></div>
 
-        <md-input-container>
           <md-select placeholder="semester" ng-model="vm.details.semester" ng-change="vm.query()">
             <md-option ng-repeat="semester in vm.semesters" value="{{semester}}">SE{{semester}}</md-option>
           </md-select>
-        </md-input-container>
 
       </div>
 
