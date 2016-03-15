@@ -13,7 +13,7 @@
 
     vm.scores = [];
     var examTypes = [];
-    vm.semesters = [1, 2, 3, 4, 5, 6, 7, 8];
+    vm.semesters = [];
     var courses = [];
     vm.details = {
       semester: '',
@@ -46,6 +46,17 @@
         return total
     }
 
+    vm.getAverage = function() {
+      var average = 0;
+      var total = 0;
+      var numCourses = vm.scores.length;
+
+      for(var i in vm.scores){
+        total += vm.getTotalMark(vm.scores[i])
+      }
+      average = total / numCourses;
+      return average;
+    }
 
     function toArray(json) {
       var data = json.map(function(obj) {

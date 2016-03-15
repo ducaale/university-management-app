@@ -1,14 +1,20 @@
 <md-content>
 
+  <div layout>
+    <span flex></span>
+    <md-input-container>
+      <label>SEMESTER</label>
+      <md-select ng-model="vm.details.semester" ng-change="vm.query()">
+        <md-option ng-repeat="semester in vm.semesters" value="{{semester}}">SE{{semester}}</md-option>
+      </md-select>
+    </md-input-container>
+  </div>
+
   <md-card>
     <md-toolbar class="md-table-toolbar md-default">
       <div class="md-toolbar-tools">
         <span>Scores</span>
         <div flex></div>
-
-          <md-select placeholder="semester" ng-model="vm.details.semester" ng-change="vm.query()">
-            <md-option ng-repeat="semester in vm.semesters" value="{{semester}}">SE{{semester}}</md-option>
-          </md-select>
 
       </div>
 
@@ -28,6 +34,11 @@
 
             <td md-cell ng-repeat="score in course">{{score}}</td>
             <td md-cell>{{vm.getTotalMark(course)}}</td>
+          </tr>
+          <tr md-row>
+            <td md-cell>AVERAGE</td>
+            <td md-cell ng-repeat="examType in vm.examTypes"></td>
+            <td md-cell>{{vm.getAverage() | number:2}}%</td>
           </tr>
         </tbody>
       </table>
