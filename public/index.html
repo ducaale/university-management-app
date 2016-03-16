@@ -1,4 +1,5 @@
 <toolbar title='Dashboard'></toolbar>
+<div ng-http-loader ttl="2" template='other/partials/loader.html'></div>
 
 <div class="container" layout="row" flex>
 
@@ -8,7 +9,8 @@
       <span flex></span>
       <div layout="column" class="md-toolbar-tools-bottom inset">
         <div layout="row" layout-align="start center">
-          <md-icon class="avatar" md-svg-icon="avatars:svg-1"></md-icon>
+          <md-icon ng-if="currentUser.gender_type == 'male' " class="avatar" md-svg-icon="avatars:svg-1"></md-icon>
+            <md-icon ng-if="currentUser.gender_type == 'female' " class="avatar" md-svg-icon="avatars:svg-6"></md-icon>
           <span flex></span>
         </div>
         <span></span>
