@@ -36,14 +36,14 @@
       })
     }
 
-    function getTotalMark(course){
+    function getTotalMark(course) {
       var total = 0
-        for(var i in course){
-          if(typeof course[i] == "number" && (i <= examTypes.length) ){
-            total += course[i]
-          }
+      for (var i in course) {
+        if (typeof course[i] == "number" && (i <= examTypes.length)) {
+          total += course[i]
         }
-        return total
+      }
+      return total
     }
 
     vm.getAverage = function() {
@@ -51,7 +51,7 @@
       var total = 0;
       var numCourses = examTypes.length;
 
-      for(var i in vm.scores){
+      for (var i in vm.scores) {
         total += getTotalMark(vm.scores[i])
       }
       average = total / numCourses;
@@ -84,7 +84,7 @@
     }
 
     function appendTotal(courses) {
-      for(var i in courses){
+      for (var i in courses) {
         var totalIndex = examTypes.length + 1;
         var totalMark = getTotalMark(courses[i]);
 
@@ -136,6 +136,15 @@
         }
       }
       return newArray;
+    }
+
+
+    vm.printDiv = function(divName) {
+      var printContents = document.getElementById(divName).innerHTML;
+      var popupWin = window.open('', '_blank');
+      popupWin.document.open();
+      popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="master.css" /></head><body onload="window.print()">' + printContents + '</body></html>');
+      popupWin.document.close();
     }
 
   }
