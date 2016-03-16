@@ -13,13 +13,22 @@ var myApp = angular.module('myApp', [
   'ngMaterial',
   'md.data.table',
   'angular-loading-bar',
+  'ng.httpLoader',
   'ui.router',
   'satellizer'
 ]);
 
+
 myApp.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
   cfpLoadingBarProvider.includeSpinner = false;
 }])
+
+.config([
+  'httpMethodInterceptorProvider',
+  function (httpMethodInterceptorProvider) {
+    httpMethodInterceptorProvider.whitelistLocalRequests();
+  }
+])
 
 myApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide) {
 
@@ -173,4 +182,5 @@ myApp.config(["$mdIconProvider", function($mdIconProvider) {
     .icon("info", "css/svg/ic_info_black_24px.svg", 24)
     .icon("credit", "css/svg/ic_credit_card_white_24px.svg", 24)
     .icon("save", "css/svg/ic_save_white_24px.svg", 24)
+    .icon("print", "css/svg/ic_print_black_24px.svg", 24)
 }])
