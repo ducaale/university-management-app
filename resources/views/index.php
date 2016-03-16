@@ -53,6 +53,9 @@
   <!-- satellizer for jwt auth-->
   <script src="bower_components\satellizer\satellizer.js"></script>
 
+  <!-- http loading interceptor -->
+  <script src="bower_components/angular-http-loader/app/package/js/angular-http-loader.min.js"></script>
+
 
   <script src="app.module.js"></script>
 
