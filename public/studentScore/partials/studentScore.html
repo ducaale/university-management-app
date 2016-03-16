@@ -32,8 +32,7 @@
         <tbody md-body>
           <tr md-row ng-repeat="course in vm.scores">
 
-            <td md-cell ng-repeat="score in course">{{score}}</td>
-            <td md-cell>{{vm.getTotalMark(course)}}</td>
+            <td md-cell ng-repeat="score in course track by $index">{{score}}</td>
           </tr>
           <tr md-row>
             <td md-cell>AVERAGE</td>

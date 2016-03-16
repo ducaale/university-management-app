@@ -36,7 +36,7 @@
       })
     }
 
-    vm.getTotalMark = function(course){
+    function getTotalMark(course){
       var total = 0
         for(var i in course){
           if(typeof course[i] == "number"){
@@ -52,7 +52,7 @@
       var numCourses = vm.scores.length;
 
       for(var i in vm.scores){
-        total += vm.getTotalMark(vm.scores[i])
+        total += getTotalMark(vm.scores[i])
       }
       average = total / numCourses;
       return average;
@@ -80,7 +80,18 @@
           }
         }
       }
-      return data;
+      return appendTotal(data);
+    }
+
+    function appendTotal(courses) {
+      for(var i in courses){
+        var totalIndex = examTypes.length + 1;
+        var totalMark = getTotalMark(courses[i]);
+
+        courses[i][totalIndex] = totalMark;
+
+      }
+      return courses
     }
 
     function getExamIndex(exam) {
