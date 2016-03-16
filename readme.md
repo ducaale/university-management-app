@@ -9,6 +9,8 @@ this app use laravel framework as backend and angularjs as frontend. for authent
 
 -composer
 
+-bower
+
 ###Installation
 ```
 git clone https://github.com/ducaale/university-management-app.git
@@ -36,6 +38,15 @@ running this command will start server at port 8000
 ```
 php artisan serve
 ```
+
+###Bower components
+```
+cd public
+```
+```
+bower install
+```
+
 ###using the program
 admin
 
