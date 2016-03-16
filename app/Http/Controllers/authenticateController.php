@@ -26,7 +26,7 @@ class authenticateController extends Controller
       // search user from multiple tables
       $user = DB::table(DB::raw('(select id, user_id from students union select id, user_id from staffs) as a'))
                                    ->select('a.id', 'users.role')
-                                   ->rightjoin('users','users.id','=','a.user_id')
+                                   ->join('users','users.id','=','a.user_id')
                                    ->where('user_name', '=', $request->input('user_name'))->first();
 
       if(count($user) == 1){
@@ -62,9 +62,10 @@ class authenticateController extends Controller
           return response()->json(['token_absent'], $e->getStatusCode());
       }
 
-      $user = DB::table(DB::raw('(select id, name, user_id from students union select id, name,user_id from staffs) as a'))
-                                   ->select('a.id', 'a.name', 'users.role')
-                                   ->rightjoin('users','users.id','=','a.user_id')
+      $user = DB::table(DB::raw('(select id, name, gender_type_id ,user_id from students union select id, name, 0 as gender_type_id ,user_id from staffs) as a'))
+                                   ->select('a.id', 'a.name', 'gender_type', 'users.role')
+                                   ->join('users','users.id','=','a.user_id')
+                                   ->leftjoin('gender', 'gender.id', '=', 'a.gender_type_id')
                                    ->where('users.id', '=', $user->id)->first();
         //token is valid and user is found
         return response()->json(compact('user'));
