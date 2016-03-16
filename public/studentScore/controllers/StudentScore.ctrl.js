@@ -49,7 +49,7 @@
     vm.getAverage = function() {
       var average = 0;
       var total = 0;
-      var numCourses = examTypes.length;
+      var numCourses = vm.scores.length;
 
       for (var i in vm.scores) {
         total += getTotalMark(vm.scores[i])
