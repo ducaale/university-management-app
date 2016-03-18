@@ -17,6 +17,9 @@
   <!-- angular loading-bar css-->
   <link rel="stylesheet" href="bower_components\angular-loading-bar\build\loading-bar.min.css"/>
 
+  <!-- angular print css -->
+  <link rel="stylesheet" href="bower_components\angularPrint\angularPrint.css">
+
   <!-- my stylesheet -->
   <link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8"/>
 
@@ -56,6 +59,8 @@
   <!-- http loading interceptor -->
   <script src="bower_components/angular-http-loader/app/package/js/angular-http-loader.min.js"></script>
 
+  <!-- angular print -->
+  <script src="bower_components\angularPrint\angularPrint.js"></script>
 
   <script src="app.module.js"></script>
 

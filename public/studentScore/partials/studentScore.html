@@ -15,13 +15,13 @@
       <div class="md-toolbar-tools">
         <span>Scores</span>
         <div flex></div>
-        <md-button class="md-icon-button" aria-label="print" ng-click="vm.printDiv('studentScoresTable')">
+        <md-button class="md-icon-button" aria-label="print" print-btn>
           <md-icon md-svg-icon="print"></md-icon>
         </md-button>
       </div>
 
     </md-toolbar>
-    <md-table-container id="studentScoresTable">
+    <md-table-container print-section>
       <table md-table>
         <thead md-head>
           <tr md-row>
