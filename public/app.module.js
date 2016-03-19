@@ -15,8 +15,7 @@ var myApp = angular.module('myApp', [
   'angular-loading-bar',
   'ng.httpLoader',
   'ui.router',
-  'satellizer',
-  'AngularPrint'
+  'satellizer'
 ]);
 
 
