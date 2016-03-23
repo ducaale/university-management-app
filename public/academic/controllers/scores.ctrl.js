@@ -61,20 +61,17 @@
     }
 
     function refreshOriginal() {
-      Score.query({
+      return Score.query({
         course_id: parseInt(vm.details.course.id),
         exam_type_id: parseInt(vm.details.examType.id),
         batch_id: parseInt(vm.details.batch.id)
       }).$promise.then(function(result) {
-        original = angular.copy(result);
-      }, function(error) {
-        console.log(error);
-      });
+        original = result;
+        save();
+      })
     }
 
-
-    vm.save = function() {
-      refreshOriginal();
+    function save() {
       marksData = [];
       for (var x in vm.marks) {
         marksData.push({
@@ -89,14 +86,27 @@
         });
       }
 
-      for (var x in original) {
+      for (var x = 0; x < marksData.length; x++) {
+
+        if(!original[x]){continue}
+
         if (original[x].id == null) {
-          Score.save(marksData[x]);
+          Score.save(marksData[x]).$promise.then(function() {
+            console.log("saved success");
+          })
         } else if (original[x].mark != marksData[x].mark) {
-          Score.update(marksData[x]);
+          Score.update(marksData[x]).$promise.then(function() {
+            console.log("updated success");
+          })
+        } else {
+          console.log("ignore");
         }
-        console.log(marksData);
       }
+    }
+
+
+    vm.save = function() {
+      refreshOriginal()
     }
 
 
