@@ -5,17 +5,15 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
   <title>My AngularJS App</title>
+
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
 
   <!-- material table style sheet -->
   <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css" />
 
-  <!-- fonts & icons -->
-  <link href="http://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" />
-
   <!-- angular loading-bar css-->
-  <link rel="stylesheet" href="bower_components\angular-loading-bar\build\loading-bar.min.css"/>
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css"/>
 
   <!-- my stylesheet -->
   <link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8"/>
@@ -48,10 +46,10 @@
   <script src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
 
   <!-- angular loading bar -->
-  <script src="bower_components\angular-loading-bar\build\loading-bar.min.js"></script>
+  <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
 
   <!-- satellizer for jwt auth-->
-  <script src="bower_components\satellizer\satellizer.js"></script>
+  <script src="bower_components/satellizer/satellizer.js"></script>
 
   <!-- http loading interceptor -->
   <script src="bower_components/angular-http-loader/app/package/js/angular-http-loader.min.js"></script>

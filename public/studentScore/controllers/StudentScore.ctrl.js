@@ -142,7 +142,7 @@
       var printContents = document.getElementById(divName).innerHTML;
       var popupWin = window.open('', '', '');
       popupWin.document.open();
-      popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="style.css" /></head><body onload="window.print()">' + printContents + '</body></html>');
+      popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="css/print.css" /></head><body onload="window.print()">' + printContents + '</body></html>');
       popupWin.document.close();
     }
 

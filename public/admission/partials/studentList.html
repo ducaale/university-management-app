@@ -1,20 +1,19 @@
 
-
-<div>
-  <md-content>
-    <md-card style='padding:1px 24px 1px 24px'>
-      <md-input-container>
-        <md-icon md-svg-icon="search"></md-icon>
-        <label>search</label>
-        <input type="text" name="search" ng-model='vm.search'>
-      </md-input-container>
-    </md-card>
-  </md-content>
-</div>
-
 <div>
   <md-content>
     <md-card>
+      <md-toolbar class="md-table-toolbar md-default" ng-hide="vm.selected.length">
+        <div class="md-toolbar-tools">
+          Students
+          <div flex></div>
+          <md-button class="md-icon-button" aria-label="search" ng-click="vm.show = !vm.show">
+            <md-icon md-svg-icon="search"></md-icon>
+          </md-button>
+          <md-input-container>
+            <input type="text" aria-label="search" ng-model='vm.search' ng-show="vm.show" autofocus>
+          </md-input-container>
+        </div>
+      </md-toolbar>
       <md-table-container>
         <table md-table md-row-select=false ng-model="vm.selected" md-progress="vm.promise">
           <thead md-head>

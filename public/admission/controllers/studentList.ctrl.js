@@ -8,6 +8,7 @@
   function studentController($resource, $state, $stateParams, $mdDialog, $mdMedia, Student, Guardian, Batch, Gender, VerifyDelete, Toast) {
     var vm = this;
 
+    vm.show = false;
     vm.search = [];
     vm.students = [];
     vm.guardians = [];

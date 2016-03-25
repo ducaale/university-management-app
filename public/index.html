@@ -7,14 +7,13 @@
   <md-sidenav id="sidenav" class="md-whiteframe-4dp" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
     <md-toolbar class="md-tall md-hue-2">
       <span flex></span>
-      <div layout="column" class="md-toolbar-tools-bottom inset">
+      <div layout="column" class="md-toolbar-tools-bottom ">
         <div layout="row" layout-align="start center">
           <md-icon ng-if="currentUser.gender_type == 'male' " class="avatar" md-svg-icon="avatars:svg-1"></md-icon>
             <md-icon ng-if="currentUser.gender_type == 'female' " class="avatar" md-svg-icon="avatars:svg-6"></md-icon>
           <span flex></span>
         </div>
-        <span></span>
-        <div>{{currentUser.name}}</div>
+        <div flex="grow" layout-align="end center" id="userName">{{currentUser.name}}</div>
       </div>
     </md-toolbar>
 
