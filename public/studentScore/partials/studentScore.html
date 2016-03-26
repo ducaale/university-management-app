@@ -10,39 +10,40 @@
     </md-input-container>
   </div>
 
-  <md-card>
-    <md-toolbar class="md-table-toolbar md-default">
-      <div class="md-toolbar-tools">
-        <span>Scores</span>
-        <div flex></div>
-        <md-button class="md-icon-button" aria-label="print" ng-click="vm.print('studentScoreTable')">
-          <md-icon md-svg-icon="print"></md-icon>
-        </md-button>
-      </div>
+  <div>
+    <md-card>
+      <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+          <span>Scores</span>
+          <div flex></div>
+          <md-button class="md-icon-button" aria-label="print" ng-click="vm.print('studentScoreTable')">
+            <md-icon md-svg-icon="print"></md-icon>
+          </md-button>
+        </div>
 
-    </md-toolbar>
-    <md-table-container id="studentScoreTable">
-      <table md-table>
-        <thead md-head>
-          <tr md-row>
-            <th md-column>COURSE</th>
-            <th md-column md-numeric ng-repeat="examType in vm.examTypes">{{examType | uppercase}}</th>
-            <th md-column md-numeric>TOTAL</th>
-          </tr>
-        </thead>
+      </md-toolbar>
+      <md-table-container id="studentScoreTable">
+        <table md-table>
+          <thead md-head>
+            <tr md-row>
+              <th md-column>COURSE</th>
+              <th md-column md-numeric ng-repeat="examType in vm.examTypes">{{examType | uppercase}}</th>
+              <th md-column md-numeric>TOTAL</th>
+            </tr>
+          </thead>
 
-        <tbody md-body>
-          <tr md-row ng-repeat="course in vm.scores">
+          <tbody md-body>
+            <tr md-row ng-repeat="course in vm.scores">
 
-            <td md-cell ng-repeat="score in course track by $index">{{score}}</td>
-          </tr>
-          <tr md-row>
-            <td md-cell>AVERAGE</td>
-            <td md-cell ng-repeat="examType in vm.examTypes"></td>
-            <td md-cell>{{vm.getAverage() | number:2}}%</td>
-          </tr>
-        </tbody>
-      </table>
-    </md-table-container>
-  </md-card>
+              <td md-cell ng-repeat="score in course track by $index">{{score}}</td>
+            </tr>
+            <tr md-row>
+              <td md-cell colspan="{{vm.examTypes.length + 1}}">AVERAGE</td>
+              <td md-cell>{{vm.getAverage() | number:2}}%</td>
+            </tr>
+          </tbody>
+        </table>
+      </md-table-container>
+    </md-card>
 </md-content>
+</div>

@@ -28,7 +28,7 @@ md-sidenav #userName {
   border-radius: 50%;
   display: inline-block;
   overflow: hidden;
-  margin : 24px 24px 40px 8px;
+  margin : 8px 24px 22px 8px;
 }
 md-list .md-button {
   width: 100%;

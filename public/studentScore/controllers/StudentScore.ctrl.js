@@ -5,9 +5,9 @@
     .module('studentScore')
     .controller('studentScoreController', studentScoreController)
 
-  studentScoreController.$inject = ['StudentScore', 'StudentSemester'];
+  studentScoreController.$inject = ['$rootScope', 'StudentScore', 'StudentSemester'];
 
-  function studentScoreController(StudentScore, StudentSemester) {
+  function studentScoreController($rootScope, StudentScore, StudentSemester) {
     var vm = this;
 
 
@@ -139,10 +139,11 @@
     }
 
     vm.print = function(divName) {
+      var userInfo = '<p>ID: '+ $rootScope.currentUser.id +'</p>' + '<p>name: '+ $rootScope.currentUser.name +'</p>' + '<p>semester: '+ vm.details.semester +'</p>' 
       var printContents = document.getElementById(divName).innerHTML;
       var popupWin = window.open('', '', '');
       popupWin.document.open();
-      popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="css/print.css" /></head><body onload="window.print()">' + printContents + '</body></html>');
+      popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="css/print.css" /></head><body onload="window.print()">' + userInfo + printContents + '</body></html>');
       popupWin.document.close();
     }
 

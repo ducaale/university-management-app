@@ -1,4 +1,13 @@
 table, th, td{
   border: 1px solid black;
   border-collapse: collapse;
+  text-align: right;;
+}
+
+th, td {
+  padding: 8px;
+}
+
+th:first-child, td:first-child{
+  text-align: left;
 }
