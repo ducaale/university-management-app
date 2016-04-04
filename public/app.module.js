@@ -163,8 +163,8 @@ myApp.config(['$mdThemingProvider', function($mdThemingProvider) {
   'use strict';
 
   $mdThemingProvider.theme('default')
-    .primaryPalette('brown')
-    .accentPalette('red');
+    .primaryPalette('teal')
+    .accentPalette('blue');
 }])
 
 myApp.config(["$mdIconProvider", function($mdIconProvider) {

@@ -38,7 +38,7 @@ md-input-container label {
   color: rgba(0, 0, 0, 0.50);
 }
 md-toolbar h2 {
-  padding-left: 12px;
+  padding-left: 24px;
 }
 .full-screen-dialog {
   max-width: 100%;
@@ -48,8 +48,8 @@ md-toolbar h2 {
   border-radius: 0;
 }
 md-toolbar.md-table-toolbar.alternate {
-  color: #795548;
-  background-color: #EFEBE9;
+  color: #2196F3;
+  background-color: #E3F2FD;
 }
 tbody > .md-row:hover {
   background-color: #EEEEEE;
