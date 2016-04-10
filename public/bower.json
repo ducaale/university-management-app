@@ -28,8 +28,7 @@
     "angular-route": "~1.4.0",
     "angular-ui-router": "^0.2.18",
     "html5-boilerplate": "~5.2.0",
-    "satellizer": "^0.13.4",
-    "angular-http-loader": "^0.1.7"
+    "satellizer": "^0.13.4"
   },
   "resolutions": {
     "angular": "1.5.0"

@@ -1,67 +1,77 @@
 <md-dialog aria-label="Register Student">
 
 
-    <md-toolbar>
-      <h2>Student Registration Form</h2>
-    </md-toolbar>
-  <md-dialog-content>
-    <div flex layout="row" layout-align="center center">
-      <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
+  <md-toolbar>
+    <h2>Student Registration Form</h2>
+  </md-toolbar>
+  <md-dialog-content layout-padding>
 
-        <form name="registerForm" novalidate>
+    <form name="registerForm" novalidate>
 
-          <md-input-container>
-            <label>Id</label>
-            <input type="number" name='id_no' ng-model="data.id_no" required>
-          </md-input-container>
+      <div layout="row">
 
-          <md-input-container>
-            <label>Name</label>
-            <input type="text" name="name" ng-model="data.name">
-          </md-input-container>
+        <md-input-container>
+          <label>Id</label>
+          <input type="number" name='id_no' ng-model="data.id_no" required>
+        </md-input-container>
 
-          <md-input-container>
-            <label>Tel</label>
-            <input type="text" name="tel" ng-model="data.tel">
-          </md-input-container>
+        <md-input-container class="md-block" flex="90">
+          <label>Name</label>
+          <md-icon md-svg-icon="person"></md-icon>
+          <input type="text" name="name" ng-model="data.name">
+        </md-input-container>
 
-          <md-input-container>
-            <label>batch</label>
-            <md-select ng-model="data.batch_id" required>
-              <md-option ng-repeat="batch in batches" value="{{batch.id}}">
-                {{batch.batch_name}}
-              </md-option>
-            </md-select>
-          </md-input-container>
-
-          <md-radio-group ng-model="data.gender_type_id">
-            <md-radio-button ng-repeat="gender in gender" value="{{gender.id}}">
-              {{gender.gender_type}}
-            </md-radio-button>
-          </md-radio-group>
-
-
-            <md-input-container>
-              <label>date of birth</label>
-              <input type='date' ng-model="data.date_of_birth" required>
-            </md-input-container>
-
-            <md-input-container>
-              <label>enrollment date</label>
-              <input type='date' ng-model="data.enrollment_date" required>
-            </md-input-container>
-
-
-          <md-autocomplete md-floating-label="guardian name" required md-selected-item="selectedGuardian" md-search-text="searchGuardian" md-items="guardian in guardians | filter: searchGuardian" md-item-text="guardian.name" md-min-length="0" placeholder="select guardian"
-            required>
-            <md-item-template>
-              <span md-highlight-text="searchGuardian" md-highlight-flags="^i">{{guardian.name}}</span>
-            </md-item-template>
-          </md-autocomplete>
-
-        </form>
       </div>
-    </div>
+
+      <div layout="row">
+
+        <md-input-container class="md-block">
+          <label>Tel</label>
+          <md-icon md-svg-icon="phone"></md-icon>
+          <input type="text" name="tel" ng-model="data.tel">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>date of birth</label>
+          <input type='date' ng-model="data.date_of_birth" required>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>batch</label>
+          <md-select ng-model="data.batch_id" required>
+            <md-option ng-repeat="batch in batches" value="{{batch.id}}">
+              {{batch.batch_name}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+
+      </div>
+
+
+      <md-radio-group ng-model="data.gender_type_id">
+        <md-radio-button ng-repeat="gender in gender" value="{{gender.id}}">
+          {{gender.gender_type}}
+        </md-radio-button>
+      </md-radio-group>
+
+
+
+
+      <md-input-container>
+        <label>enrollment date</label>
+        <input type='date' ng-model="data.enrollment_date" required>
+      </md-input-container>
+
+
+      <md-autocomplete md-floating-label="guardian name" required md-selected-item="selectedGuardian" md-search-text="searchGuardian" md-items="guardian in guardians | filter: searchGuardian" md-item-text="guardian.name" md-min-length="0" placeholder="select guardian"
+        required>
+        <md-item-template>
+          <span md-highlight-text="searchGuardian" md-highlight-flags="^i">{{guardian.name}}</span>
+        </md-item-template>
+      </md-autocomplete>
+
+    </form>
+
   </md-dialog-content>
 
 

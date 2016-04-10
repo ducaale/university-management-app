@@ -11,7 +11,7 @@ body, md-content {
   height: 100%;
 }
 #sidenav {
-  width: 250px;
+  width: 240px;
 }
 md-sidenav md-toolbar {
   background: url('nav-background.png');
