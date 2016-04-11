@@ -19,6 +19,8 @@ class student extends Model
       'gender_type_id'
     ];
 
+    
+
     public function guardian(){
       return $this->belongsTo('App\Guardian');
     }
@@ -32,6 +34,6 @@ class student extends Model
     }
 
     public function batch(){
-      return $this->belongsTo('App\Batch', 'foreign_key');
+      return $this->belongsTo('App\Batch');
     }
 }
