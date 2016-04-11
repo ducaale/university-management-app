@@ -177,4 +177,5 @@ myApp.config(["$mdIconProvider", function($mdIconProvider) {
     .icon("print", "css/svg/ic_print_black_24px.svg", 24)
     .icon("person", "css/svg/ic_person_24px.svg", 24)
     .icon("phone", "css/svg/ic_phone_24px.svg", 24)
+    .icon("date", "css/svg/ic_today_black_24px.svg", 24)
 }])

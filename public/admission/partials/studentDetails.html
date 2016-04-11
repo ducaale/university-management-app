@@ -1,25 +1,52 @@
+<div layout="row" layout-xs="column">
+  <div flex>
+    <md-card class="md-padding" flex>
+      <p class="md-title">Personal Info</p>
+      <p>NAME: {{student.name}}</p>
+      <p>TEL: {{student.tel}}</p>
+      <p>DATE OF BIRTH: {{student.date_of_birth |date}}</p>
+    </md-card>
 
-<p>ID:  {{student.id_no}}</p>
-<p>NAME: {{student.name}}</p>
-<p>BATCH: {{student.batch_name}}</p>
-<p>TEL:  {{student.tel}}</p>
-<p>DATE OF BIRTH: {{student.date_of_birth |date}}</p>
-<p>ENROLLEMENT DATE: {{student.enrollment_date | date}}</p>
+    <md-card class="md-padding">
+      <p class="md-title">Guardian Info</p>
+      <p>NAME: {{student.guardian}}</p>
+      <p>TEL: {{student.guardian_tel}}</p>
+    </md-card>
+  </div>
+
+  <div flex>
+    <md-card class="md-padding">
+      <p class="md-title">Academic Info</p>
+      <p>BATCH: {{student.batch_name}}</p>
+      <p>SEMESTER:</p>
+      <p>ID: {{student.id_no}}</p>
+      <p>ENROLLEMENT DATE: {{student.enrollment_date | date}}</p>
+    </md-card>
+  </div>
+</div>
+
+
 
 
 
 <form ng-submit="edit()">
 
-id:<br>
-<input type="text" name='id_no' ng-model="student.id_no"><br>
-name:<br>
-<input type="text" name="name" ng-model="student.name"><br>
-tel:<br>
-<input type="text" name="tel" ng-model="student.tel"><br>
-batch:<br>
-<input type="text" name="batch" ng-model="student.batch"><br>
-date of birth:<br>
-<input type="date" name="name" ng-model="student.date_of_birth"><br>
+  id:
+  <br>
+  <input type="text" name='id_no' ng-model="student.id_no">
+  <br> name:
+  <br>
+  <input type="text" name="name" ng-model="student.name">
+  <br> tel:
+  <br>
+  <input type="text" name="tel" ng-model="student.tel">
+  <br> batch:
+  <br>
+  <input type="text" name="batch" ng-model="student.batch">
+  <br> date of birth:
+  <br>
+  <input type="date" name="name" ng-model="student.date_of_birth">
+  <br>
 
 
   <button type="submit">save</button>

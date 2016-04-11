@@ -54,3 +54,6 @@ md-toolbar.md-table-toolbar.alternate {
 tbody > .md-row:hover {
   background-color: #EEEEEE;
 }
+md-card {
+  font-size: 14px;
+}

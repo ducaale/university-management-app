@@ -1,5 +1,3 @@
-<toolbar title='Dashboard'></toolbar>
-
 <div class="container" layout="row" flex>
 
 
@@ -8,7 +6,7 @@
       <div layout="column" class="md-toolbar-tools-bottom ">
         <div layout="row" layout-align="start center">
           <md-icon ng-show="currentUser.gender_type == 'male' " class="avatar" md-svg-icon="avatars:svg-1"></md-icon>
-            <md-icon ng-show="currentUser.gender_type == 'female' " class="avatar" md-svg-icon="avatars:svg-6"></md-icon>
+          <md-icon ng-show="currentUser.gender_type == 'female' " class="avatar" md-svg-icon="avatars:svg-6"></md-icon>
           <span flex></span>
         </div>
         <div flex="grow" id="userName">{{currentUser.name}}</div>
@@ -46,14 +44,15 @@
       </md-list-item>
     </md-list>
 
-
   </md-sidenav>
 
-  <md-content class="main-content" flex>
+  <div layout="column" flex>
+    <toolbar title='Dashboard'></toolbar>
+    <md-content class="main-content" flex>
+      <div ui-view></div>
+    </md-content>
+  </div>
 
-    <div ui-view></div>
-
-  </md-content>
 
 
 </div>
