@@ -1,7 +1,7 @@
-
 <div>
   <md-content>
     <md-card>
+
       <md-toolbar class="md-table-toolbar md-default" ng-hide="vm.selected.length">
         <div class="md-toolbar-tools">
           Students
@@ -14,8 +14,22 @@
           </md-input-container>
         </div>
       </md-toolbar>
+
+      <md-toolbar class="md-table-toolbar alternate" ng-show="vm.selected.length">
+        <div class="md-toolbar-tools">
+          {{vm.selected.length}} {{vm.selected.length > 1 ? "Students" : "Student"}} selected
+          <div flex></div>
+          <md-button class="md-icon-button" aria-label="more" ng-hide="vm.selected.length > 1" ng-click="vm.moreInfo(vm.selected[0])">
+            <md-icon md-svg-icon="info"></md-icon>
+          </md-button>
+          <md-button class="md-icon-button" aria-label="disable" ng-click="vm.delete(vm.selected)">
+            <md-icon md-svg-icon="delete"></md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
+
       <md-table-container>
-        <table md-table md-row-select=false ng-model="vm.selected" md-progress="vm.promise">
+        <table md-table md-row-select ng-model="vm.selected" md-progress="vm.promise">
           <thead md-head>
             <tr md-row>
               <th md-column>ID</th>
@@ -24,12 +38,11 @@
               <th md-column>TEL</th>
               <th md-column>ENROLLMENT DATE</th>
               <th md-column>DATE OF BIRTH</th>
-              <th md-column md-numeric></th>
             </tr>
           </thead>
 
           <tbody md-body>
-            <tr md-row ng-repeat="student in vm.students | filter:vm.search | limitTo: vm.query.limit : (vm.query.page -1) * vm.query.limit">
+            <tr md-row md-select="student" md-select-id={{student.id}} md-auto-select ng-repeat="student in vm.students | filter:vm.search | limitTo: vm.query.limit : (vm.query.page -1) * vm.query.limit">
 
               <td md-cell>{{student.id_no}}</td>
               <td md-cell>{{student.name}}</td>
@@ -37,34 +50,7 @@
               <td md-cell>{{student.tel}}</td>
               <td md-cell>{{student.enrollment_date | date}}</td>
               <td md-cell>{{student.date_of_birth | date}}</td>
-              <td md-cell>
-                <md-menu md-position-mode="target-right target">
-                  <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
-                    <md-icon md-svg-icon="more_vert_black"></md-icon>
-                  </md-button>
-                  <md-menu-content width="3">
 
-                    <md-menu-item>
-                      <md-button ng-click="vm.delete(student, $index)">
-                        <div layout="row">
-                          <p flex> Delete </p>
-                          <md-icon md-menu-align-target md-svg-icon="delete" style="margin: auto 3px auto 0;"></md-icon>
-                        </div>
-                      </md-button>
-                    </md-menu-item>
-
-                    <md-menu-item>
-                      <md-button ng-click="vm.moreInfo(student.id)">
-                        <div layout="row">
-                          <p flex> More </p>
-                          <md-icon md-menu-align-target md-svg-icon="info" style="margin: auto 3px auto 0;"></md-icon>
-                        </div>
-                      </md-button>
-                    </md-menu-item>
-
-                  </md-menu-content>
-                </md-menu>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -72,8 +58,6 @@
       <md-table-pagination md-limit="vm.query.limit" md-page="vm.query.page" md-total="{{vm.students.length}}" md-page-select=true md-boundary-links=false></md-table-pagination>
     </md-card>
 </div>
-
-
 
 <md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="vm.openDialog()">
   <md-icon md-svg-icon="add"></md-icon>

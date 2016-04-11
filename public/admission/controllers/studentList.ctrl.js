@@ -58,28 +58,36 @@
       console.log(error);
     })
 
-    vm.delete = function(user, index) {
-      VerifyDelete(user).then(function() {
-        user.active = 0;
-        console.log(user);
-        Student.update(user).$promise.then(function(data) {
-          vm.students.splice(index, 1);
-          console.log('deleted successfully');
-        })
+    vm.delete = function(user) {
+
+      var message = user.length > 1 ? user.length + " students" : user[0].name
+
+      VerifyDelete(user, message).then(function() {
+        for (var i = 0; i < user.length; i++) {
+          user[i].active = 0;
+          Student.update(user[i]).$promise.then(function(data) {
+            //get student index and remove from list
+            vm.students.splice(vm.students.indexOf(user[i]), 1);
+          })
+        }
+          Toast("disabled successfully");
+          vm.selected = [];
       })
     }
 
     vm.register = function(data) {
       Student.save(data).$promise.then(function(success) {
         Toast('success');
-          vm.students.push(data);
+        vm.students.push(data);
       }, function(error) {
         Toast('error')
       })
     }
 
-    vm.moreInfo = function(studentId) {
-      $state.go('home.student', ({id: studentId}));
+    vm.moreInfo = function(student) {
+      $state.go('home.student', ({
+        id: student.id
+      }));
     }
 
 
