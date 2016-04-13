@@ -2,48 +2,7 @@
 
 
   <md-sidenav id="sidenav" class="md-whiteframe-4dp" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-    <md-toolbar class="md-tall md-hue-2">
-      <div layout="column" class="md-toolbar-tools-bottom ">
-        <div layout="row" layout-align="start center">
-          <md-icon ng-show="currentUser.gender_type == 'male' " class="avatar" md-svg-icon="avatars:svg-1"></md-icon>
-          <md-icon ng-show="currentUser.gender_type == 'female' " class="avatar" md-svg-icon="avatars:svg-6"></md-icon>
-          <span flex></span>
-        </div>
-        <div flex="grow" id="userName">{{currentUser.name}}</div>
-      </div>
-    </md-toolbar>
-
-
-    <md-list ng-show="{{currentUser.role == 'admin'}}">
-      <md-list-item>
-        <md-button ui-sref=".students" ui-sref-active="md-primary">Students</md-button>
-      </md-list-item>
-      <md-list-item>
-        <md-button ui-sref=".guardians" ui-sref-active="md-primary">Guardians</md-button>
-      </md-list-item>
-      <md-list-item>
-        <md-button ui-sref=".staffs" ui-sref-active="md-primary">Staff</md-button>
-      </md-list-item>
-      <md-list-item>
-        <md-button ui-sref=".fees" ui-sref-active="md-primary">Fees</md-button>
-      </md-list-item>
-      <md-list-item>
-        <md-button ui-sref=".scores" ui-sref-active="md-primary">Marks</md-button>
-      </md-list-item>
-      <md-list-item>
-        <md-button ui-sref=".attendance" ui-sref-active="md-primary">Attendance</md-button>
-      </md-list-item>
-      <md-list-item>
-        <md-button ui-sref=".other" ui-sref-active="md-primary">Other</md-button>
-      </md-list-item>
-    </md-list>
-
-    <md-list ng-show="{{currentUser.role == 'student'}}">
-      <md-list-item>
-        <md-button ui-sref=".studentScore" ui-sref-active="md-primary">Scores</md-button>
-      </md-list-item>
-    </md-list>
-
+    <sidenav></sidenav>
   </md-sidenav>
 
   <div layout="column" flex>

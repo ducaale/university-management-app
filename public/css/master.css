@@ -19,16 +19,15 @@ md-sidenav md-toolbar {
   font-size: 15px;
 }
 md-sidenav #userName {
-  background: rgba(0, 0, 0, 0.3);
-  padding: 8px;
+  padding-top: 24px;
 }
 .avatar {
-  height: 64px;
-  width: 64px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
   display: inline-block;
   overflow: hidden;
-  margin : 8px 24px 22px 8px;
+  margin : 8px 8px 8px 8px;
 }
 md-list .md-button {
   width: 100%;

@@ -4,7 +4,7 @@
   angular
     .module('myApp')
     .directive('toolbar', toolbar)
-
+    .directive('sidenav', sidenav)
 
   function toolbar() {
     return {
@@ -24,6 +24,13 @@
           Auth.logout();
         }
       }
+    }
+  };
+
+  function sidenav() {
+    return {
+      restrict: 'E',
+      templateUrl: 'other/partials/sidenav.html',
     }
   };
 
