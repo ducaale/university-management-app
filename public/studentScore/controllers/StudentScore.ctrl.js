@@ -10,7 +10,7 @@
   function studentScoreController($rootScope, StudentScore, StudentSemester) {
     var vm = this;
 
-
+    var result1;
     vm.scores = [];
     var examTypes = [];
     vm.semesters = [];
@@ -26,22 +26,24 @@
 
     vm.query = function() {
       StudentScore.query(vm.details).$promise.then(function(result) {
-        result = toArray(result)
-        examTypes = getUnique(getExamTypes(result));
-        courses = getUnique(getCourses(result));
-        vm.examTypes = examTypes;
-        vm.scores = arrangeArray(result);
+        process(result)
       }, function(error) {
         console.log(error);
       })
     }
 
+    function process(result) {
+      result1 = toArray(result)
+      examTypes = getUnique(getExamTypes(result1));
+      courses = getUnique(getCourses(result1));
+      vm.examTypes = examTypes;
+      vm.scores = arrangeArray(result);
+    }
+
     function getTotalMark(course) {
       var total = 0
       for (var i in course) {
-        if (typeof course[i] == "number" && (i <= examTypes.length)) {
-          total += course[i]
-        }
+          total += course[i].score
       }
       return total
     }
@@ -49,10 +51,9 @@
     vm.getAverage = function() {
       var average = 0;
       var total = 0;
-      var numCourses = vm.scores.length;
-
+      var numCourses = courses.length;
       for (var i in vm.scores) {
-        total += getTotalMark(vm.scores[i])
+        total += vm.scores[i].total
       }
       average = total / numCourses;
       return average;
@@ -70,28 +71,36 @@
     function arrangeArray(array) {
       var data = [];
       for (var i in courses) {
-        data.push([]);
-        for (var j in array) {
-          if (array[j][0] == courses[i]) {
-
-            var examIndex = getExamIndex(array[j][1]);
-            data[i][0] = array[j][0];
-            data[i][examIndex] = array[j][2];
+        data[i] = {
+          'course_name': courses[i],
+          'scores': []
+        }
+        for (var j in examTypes) {
+          data[i]['scores'][j] = {
+            examType: examTypes[j],
+            score: 0
+          }
+        }
+      }
+      for(var i in array){
+        for(var j in data){
+          if(array[i].course_name == data[j].course_name){
+            var index = getExamIndex(array[i].exam_type) - 1;
+            data[j]['scores'][index]['score'] = array[i].mark;
           }
         }
       }
       return appendTotal(data);
     }
 
-    function appendTotal(courses) {
-      for (var i in courses) {
-        var totalIndex = examTypes.length + 1;
-        var totalMark = getTotalMark(courses[i]);
-
-        courses[i][totalIndex] = totalMark;
+    function appendTotal(data) {
+      for (var i in data) {
+        var totalIndex = examTypes.length;
+        var totalMark = getTotalMark(data[i].scores);
+        data[i]['total'] = totalMark;
 
       }
-      return courses
+      return data
     }
 
     function getExamIndex(exam) {
@@ -139,7 +148,7 @@
     }
 
     vm.print = function(divName) {
-      var userInfo = '<p>ID: '+ $rootScope.currentUser.id +'</p>' + '<p>name: '+ $rootScope.currentUser.name +'</p>' + '<p>semester: '+ vm.details.semester +'</p>' 
+      var userInfo = '<p>ID: ' + $rootScope.currentUser.id + '</p>' + '<p>name: ' + $rootScope.currentUser.name + '</p>' + '<p>semester: ' + vm.details.semester + '</p>'
       var printContents = document.getElementById(divName).innerHTML;
       var popupWin = window.open('', '', '');
       popupWin.document.open();

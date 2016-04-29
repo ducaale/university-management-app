@@ -1,49 +1,70 @@
-<md-content>
+<div layout>
+  <span flex></span>
+  <md-input-container>
+    <label>SEMESTER</label>
+    <md-select ng-model="vm.details.semester" ng-change="vm.query()">
+      <md-option ng-repeat="semester in vm.semesters" value="{{semester}}">SE{{semester}}</md-option>
+    </md-select>
+  </md-input-container>
+</div>
 
-  <div layout>
-    <span flex></span>
-    <md-input-container>
-      <label>SEMESTER</label>
-      <md-select ng-model="vm.details.semester" ng-change="vm.query()">
-        <md-option ng-repeat="semester in vm.semesters" value="{{semester}}">SE{{semester}}</md-option>
-      </md-select>
-    </md-input-container>
-  </div>
+<div hide show-gt-xs>
+  <md-card>
+    <md-toolbar class="md-table-toolbar md-default">
+      <div class="md-toolbar-tools">
+        <span>Scores</span>
+        <div flex></div>
+        <md-button class="md-icon-button" aria-label="print" ng-click="vm.print('studentScoreTable')">
+          <md-icon md-svg-icon="print"></md-icon>
+        </md-button>
+      </div>
 
-  <div>
-    <md-card>
-      <md-toolbar class="md-table-toolbar md-default">
-        <div class="md-toolbar-tools">
-          <span>Scores</span>
-          <div flex></div>
-          <md-button class="md-icon-button" aria-label="print" ng-click="vm.print('studentScoreTable')">
-            <md-icon md-svg-icon="print"></md-icon>
-          </md-button>
-        </div>
+    </md-toolbar>
+    <md-table-container id="studentScoreTable">
+      <table md-table>
+        <thead md-head>
+          <tr md-row>
+            <th md-column>COURSE</th>
+            <th md-column md-numeric ng-repeat="examType in vm.examTypes">{{examType | uppercase}}</th>
+            <th md-column md-numeric>TOTAL</th>
+          </tr>
+        </thead>
 
-      </md-toolbar>
-      <md-table-container id="studentScoreTable">
-        <table md-table>
-          <thead md-head>
-            <tr md-row>
-              <th md-column>COURSE</th>
-              <th md-column md-numeric ng-repeat="examType in vm.examTypes">{{examType | uppercase}}</th>
-              <th md-column md-numeric>TOTAL</th>
-            </tr>
-          </thead>
+        <tbody md-body>
+          <tr md-row ng-repeat="course in vm.scores">
+            <td md-cell>{{course.course_name}}</td>
+            <td md-cell ng-repeat="mark in course.scores track by $index">{{mark.score}}</td>
+            <td md-cell>{{course.total}}</td>
+          </tr>
+          <tr md-row>
+            <td md-cell colspan="{{vm.examTypes.length + 1}}">AVERAGE</td>
+            <td md-cell>{{vm.getAverage() | number:2}}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </md-table-container>
+  </md-card>
+</div>
 
-          <tbody md-body>
-            <tr md-row ng-repeat="course in vm.scores">
-
-              <td md-cell ng-repeat="score in course track by $index">{{score}}</td>
-            </tr>
-            <tr md-row>
-              <td md-cell colspan="{{vm.examTypes.length + 1}}">AVERAGE</td>
-              <td md-cell>{{vm.getAverage() | number:2}}%</td>
-            </tr>
-          </tbody>
-        </table>
-      </md-table-container>
-    </md-card>
-</md-content>
+<div hide-gt-xs>
+  <md-card class="md-padding" ng-repeat="course in vm.scores">
+    <md-list>
+      <md-list-item>course
+        <span class="md-secondary">{{course.course_name}}</span>
+      </md-list-item>
+      <md-list-item ng-repeat="mark in course.scores track by $index">{{mark.examType}}
+        <span class="md-secondary">{{mark.score}}</span>
+      </md-list-item>
+      <md-list-item>total
+        <span class="md-secondary">{{course.total}}</span>
+      </md-list-item>
+    </md-list>
+  </md-card>
+  <md-card>
+    <md-list>
+      <md-list-item>Average
+        <span class="md-secondary">{{vm.getAverage() | number:2}}%</span>
+      </md-list-item>
+    </md-list>
+  </md-card>
 </div>
