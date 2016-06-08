@@ -1,9 +1,6 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
-body, md-content {
-  background-color: #f5f5f5 !important;
-}
 .main-content {
   padding: 24px;
 }
@@ -13,31 +10,35 @@ body, md-content {
 #sidenav {
   width: 240px;
 }
-md-sidenav md-toolbar {
-  background: url('nav-background.png');
-  background-size: cover;
-  font-size: 15px;
-}
 md-sidenav #userName {
-  padding-top: 24px;
+  padding: 8px;
 }
 .avatar {
-  height: 45px;
-  width: 45px;
+  height: 64px;
+  width: 64px;
   border-radius: 50%;
   display: inline-block;
   overflow: hidden;
-  margin : 8px 8px 8px 8px;
+  margin: 16px 8px 8px 12px;
 }
 md-list .md-button {
   width: 100%;
   text-align: left;
+  text-transform: capitalize;
+  border-radius: 0%;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-left: 12px;
 }
 md-input-container label {
   color: rgba(0, 0, 0, 0.50);
 }
 md-toolbar h2 {
   padding-left: 24px;
+}
+.toolbar-padding {
+  padding-left: 24px;
+  padding-bottom: 16px;
 }
 .full-screen-dialog {
   max-width: 100%;
@@ -46,13 +47,38 @@ md-toolbar h2 {
   height: 95%;
   border-radius: 0;
 }
+md-toolbar.md-table-toolbar.md-default {
+  -webkit-animation: 0s none !important;
+  transition: 0s none !important;
+}
 md-toolbar.md-table-toolbar.alternate {
   color: #2196F3;
   background-color: #E3F2FD;
+  -webkit-animation: 0s none !important;
+  transition: 0s none !important;
 }
 tbody > .md-row:hover {
   background-color: #EEEEEE;
 }
-md-card {
+.search {
+  margin-top: 30px;
   font-size: 14px;
+}
+.md-button.md-fab.md-fab-bottom-right {
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+  left: auto;
+  position: fixed;
+}
+.welcome {
+  font-size: 24px;
+}
+md-dialog {
+  min-width: 30%;
+}
+@media screen and (min-width: 840px) {
+  #auth {
+    width: 25%;
+  }
 }
