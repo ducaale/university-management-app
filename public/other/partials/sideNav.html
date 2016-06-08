@@ -1,38 +1,13 @@
 
-    <div layout="row">
-        <md-icon ng-show="currentUser.gender_type == 'male' " class="avatar" md-svg-icon="avatars:svg-1"></md-icon>
-        <md-icon ng-show="currentUser.gender_type == 'female' " class="avatar" md-svg-icon="avatars:svg-6"></md-icon>
+    <div layout="column">
+        <md-icon class="avatar" md-svg-icon="{{vm.getIcon()}}"></md-icon>
       <div id="userName">{{currentUser.name}}</div>
     </div>
 
     <md-divider></md-divider>
 
-  <md-list ng-show="{{currentUser.role == 'admin'}}">
-    <md-list-item>
-      <md-button ui-sref=".students" ui-sref-active="md-primary">Students</md-button>
-    </md-list-item>
-    <md-list-item>
-      <md-button ui-sref=".guardians" ui-sref-active="md-primary">Guardians</md-button>
-    </md-list-item>
-    <md-list-item>
-      <md-button ui-sref=".staffs" ui-sref-active="md-primary">Staff</md-button>
-    </md-list-item>
-    <md-list-item>
-      <md-button ui-sref=".fees" ui-sref-active="md-primary">Fees</md-button>
-    </md-list-item>
-    <md-list-item>
-      <md-button ui-sref=".scores" ui-sref-active="md-primary">Marks</md-button>
-    </md-list-item>
-    <md-list-item>
-      <md-button ui-sref=".attendance" ui-sref-active="md-primary">Attendance</md-button>
-    </md-list-item>
-    <md-list-item>
-      <md-button ui-sref=".other" ui-sref-active="md-primary">Other</md-button>
-    </md-list-item>
-  </md-list>
-
-  <md-list ng-show="{{currentUser.role == 'student'}}">
-    <md-list-item>
-      <md-button ui-sref=".studentScore" ui-sref-active="md-primary">Scores</md-button>
+  <md-list>
+    <md-list-item ng-repeat="state in vm.getStates()">
+      <md-button ng-click='vm.toggleSideNav()' ui-sref="{{state.url}}" ui-sref-active="md-primary">{{state.name}}</md-button>
     </md-list-item>
   </md-list>
