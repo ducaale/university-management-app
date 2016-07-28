@@ -65,17 +65,26 @@ class studentMarkController extends Controller
        * process the $marks results into this format
        * {course_name: course, grades: {exam_type: score,.....}
        */
+
       $mark_array = array();
       $grade = array();
+      $size = sizeOf($marks);
+
+      if($size < 1) {
+          $result['exam_types'] = '';
+          $result['scores'] = '';
+          return $result;
+      }
+
       $next= $marks[1]->course_name;
       $i = 0;
-      $size = sizeOf($marks);
+
 
       foreach ($marks as $mark) {
 
         $grade['course'] = $mark->course_name;
         $grade['grade'][$mark->exam_type] = $mark->mark;
-        
+
         if( $i != $size - 1 ) {
           $next = $marks[$i + 1]->course_name;
         }
@@ -83,8 +92,8 @@ class studentMarkController extends Controller
         if($mark->course_name != $next || $i == $size - 1) {
           array_push($mark_array, $grade);
           $grade = array();
-        } 
-        
+        }
+
         $i++;
       }
 
@@ -96,10 +105,10 @@ class studentMarkController extends Controller
       foreach($exams as $exam) {
         array_push($exam_array, $exam->exam_type);
       }
-        
+
       /**
-       * combine examtypes and scores 
-       */ 
+       * combine examtypes and scores
+       */
       $result = array();
       $result['exam_types'] = $exam_array;
       $result['scores'] = $mark_array;
